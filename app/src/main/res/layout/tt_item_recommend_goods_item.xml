@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130.0dip"
+    android:layout_height="200.0dip"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="120.0dip"
+        android:layout_height="200.0dip"
+        android:layout_marginLeft="10.0dip"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/tt_item_recomment_goods_image"
+            android:layout_width="120.0dip"
+            android:layout_height="120.0dip"
+            android:background="@color/red"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/tt_item_recomment_goods_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tt_item_recomment_goods_image"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="10.0dip"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/gray_c5"
+            android:text="sssssssss"
+            android:textSize="@dimen/image_size_notice" />
+
+        <Button
+            android:id="@+id/tt_item_recomment_goods_operation"
+            android:layout_width="55.0dip"
+            android:layout_height="22.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10.0dip"
+            android:background="@drawable/tt_radio_solid_button_org"
+            android:focusable="false"
+            android:text="免费拿"
+            android:textColor="@color/tab_press"
+            android:textSize="@dimen/text_size_notice" />
+    </RelativeLayout>
+</RelativeLayout>

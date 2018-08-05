@@ -1,0 +1,6 @@
+include ':app','baselibrary','mainnavigatetabbar', ':ptr-lib','xrecyclerview','ChooseMorePictureLibrary'
+project(':baselibrary').projectDir = new File('baselibrary')
+project(':ptr-lib').projectDir = new File('ptr-lib')
+project(':mainnavigatetabbar').projectDir = new File('mainnavigatetabbar')
+project(':xrecyclerview').projectDir = new File('xrecyclerview')
+project(':ChooseMorePictureLibrary').projectDir = new File('ChooseMorePictureLibrary')

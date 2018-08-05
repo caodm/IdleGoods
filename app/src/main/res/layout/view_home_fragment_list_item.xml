@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tt_fragment_wish_goods_info_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_c11"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="21.0dip"
+        android:layout_marginLeft="21.0dip"
+        android:layout_marginRight="21.0dip"
+        android:layout_marginTop="15.0dip"
+        android:background="@drawable/tt_wish_goods_fragment_bg"
+        android:orientation="vertical"
+        android:paddingBottom="10.0dip"
+        android:paddingLeft="9.0dip"
+        android:paddingRight="9.0dip"
+        android:paddingTop="6.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip">
+
+                <ImageView
+                    android:id="@+id/tt_fragment_wish_goods_user_icon"
+                    android:layout_width="32.0dip"
+                    android:layout_height="32.0dip"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/tt_default_user_image" />
+
+                <TextView
+                    android:id="@+id/tt_fragment_wish_goods_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10.0dip"
+                    android:layout_toRightOf="@+id/tt_fragment_wish_goods_user_icon"
+                    android:textColor="@color/gray_c5"
+                    android:text="title"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <TextView
+                    android:id="@+id/tt_fragment_wish_goods_user_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10.0dip"
+                    android:text="撤销"
+                    android:textColor="@color/gray_c7"
+                    android:textSize="@dimen/text_size_notice" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/split_width"
+                android:background="@color/split" />
+
+            <TextView
+                android:id="@+id/tt_fragment_wish_goods_goods_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/gray_c5"
+                android:textSize="@dimen/text_size_notice" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150.0dip"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip">
+
+                <ImageView
+                    android:id="@+id/tt_fragment_wish_goods_goods_icon"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop" />
+
+                <Button
+                    android:id="@+id/tt_fragment_wish_goods_goods_image_cnt_bg"
+                    android:layout_width="20.0dip"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:background="@drawable/tt_wish_goods_goods_image_cnt_bg"
+                    android:singleLine="true"
+                    android:text="12"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_small_notice" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tt_fragment_wish_goods_goods_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/gray_c7"
+                android:textSize="@dimen/text_size_notice" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/split_width"
+                android:layout_marginTop="10.0dip"
+                android:background="@color/split" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_cash_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8.0dip"
+                        android:text="心愿一"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/text_size_notice" />
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_cash_cnt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tt_fragment_wish_goods_wish_cash_title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="心愿一"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/image_size_notice" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/split_width"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:background="@color/split" />
+
+                <RelativeLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_point_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8.0dip"
+                        android:text="心愿二"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/text_size_notice" />
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_point_cnt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tt_fragment_wish_goods_wish_point_title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="心愿一"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/image_size_notice" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/split_width"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="10.0dip"
+                    android:layout_marginTop="10.0dip"
+                    android:background="@color/split" />
+
+                <RelativeLayout
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0">
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_goods_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="8.0dip"
+                        android:text="心愿三"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/text_size_notice" />
+
+                    <TextView
+                        android:id="@+id/tt_fragment_wish_goods_wish_goods_cnt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tt_fragment_wish_goods_wish_goods_title"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="6.0dip"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="心愿一"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/image_size_notice" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tt_fragment_wish_goods_wish_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10.0dip"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="@color/gray_c5"
+                android:textSize="@dimen/image_size_notice" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tt_fragment_wish_goods_other_goods_operation"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/tt_fragment_wish_goods_other_goods_share"
+                android:layout_width="fill_parent"
+                android:layout_height="32.0dip"
+                android:layout_marginLeft="65.0dip"
+                android:layout_marginRight="65.0dip"
+                android:background="@drawable/tt_wish_goods_share_bg"
+                android:text="qfas"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/split_width"
+                android:layout_marginTop="10.0dip"
+                android:background="@color/split" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/tt_fragment_wish_goods_other_goods_communicate"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/tt_white_press_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="和TA聊聊"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/text_size_normal" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/split_width"
+                    android:layout_height="fill_parent"
+                    android:background="@color/split" />
+
+                <RelativeLayout
+                    android:id="@+id/tt_fragment_wish_goods_other_goods_buy"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/tt_white_press_bg">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="发起交易"
+                        android:textColor="@color/gray_c5"
+                        android:textSize="@dimen/text_size_normal" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/tt_fragment_wish_goods_my_goods_share"
+            android:layout_width="fill_parent"
+            android:layout_height="32.0dip"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="45.0dip"
+            android:layout_marginLeft="65.0dip"
+            android:layout_marginRight="65.0dip"
+            android:background="@drawable/tt_wish_goods_my_share_bg"
+            android:textColor="@color/trade_red"
+            android:textSize="@dimen/text_size"
+            android:visibility="gone" />
+    </RelativeLayout>
+</LinearLayout>

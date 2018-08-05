@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_c11"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/register_lt_phone"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_item_high"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginRight="@dimen/login_item_to_bottom"
+        android:layout_marginTop="@dimen/action_bar_high"
+        android:background="@drawable/tt_login_phone_number_bg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <com.cdm.idlefish.view.ClearEditText
+                android:id="@+id/register_et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/action_bar_high"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:hint="@string/hint_phone"
+                android:textColor="@color/login_edit"
+                android:textColorHint="@color/text_hint"
+                android:textSize="@dimen/text_size_normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/register_lt_authcode"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_item_high"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginRight="@dimen/login_item_to_bottom"
+        android:layout_marginTop="1.0dip"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:id="@+id/tt_register_right"
+                android:layout_width="215.0dip"
+                android:layout_height="fill_parent"
+                android:visibility="gone"
+                android:background="@color/white">
+
+                <EditText
+                    android:id="@+id/register_et_authcode"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/action_bar_high"
+                    android:layout_marginLeft="10.0dip"
+                    android:background="@null"
+                    android:hint="@string/hint_authcode"
+                    android:inputType="number"
+                    android:textColor="@color/login_edit"
+                    android:textColorHint="@color/text_hint"
+                    android:textSize="@dimen/text_size_normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="104.0dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:layout_toLeftOf="@+id/tt_register_right"
+                android:visibility="gone"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tt_register_getauthcode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/getauthcode"
+                    android:textColor="@color/tab_press"
+                    android:textSize="@dimen/register_normal_text_size" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/register_lt_password"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/login_item_high"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginRight="@dimen/login_item_to_bottom"
+        android:layout_marginTop="1.0dip"
+        android:background="@drawable/tt_login_password_bg"
+        android:orientation="horizontal">
+
+        <com.cdm.idlefish.view.ClearEditText
+            android:id="@+id/register_et_password"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/action_bar_high"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:hint="@string/hint_register_password"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:textColor="@color/login_edit"
+            android:textColorHint="@color/text_hint"
+            android:textSize="@dimen/text_size_normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/register_lt_invitecode"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginRight="@dimen/login_item_to_bottom"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:text="@string/invite_text"
+            android:textColor="@color/text_position"
+            android:textSize="@dimen/text_size_notice" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/login_item_high"
+            android:layout_marginTop="5.0dip"
+            android:background="@drawable/tt_input_bg">
+
+            <EditText
+                android:id="@+id/tt_register_et_invitecode"
+                android:layout_width="200.0dip"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="10.0dip"
+                android:background="@null"
+                android:hint="@string/invite_hint"
+                android:textColor="@color/login_edit"
+                android:textColorHint="@color/text_hint"
+                android:textSize="@dimen/text_size_normal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30.0dip"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/tt_register_btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_item_high"
+            android:layout_marginLeft="@dimen/login_item_to_bottom"
+            android:layout_marginRight="@dimen/login_item_to_bottom"
+            android:layout_weight="1.0"
+            android:background="@drawable/tt_login_bg"
+            android:text="@string/next"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginTop="@dimen/tweet_to_bottom"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_notice"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/image_size_notice" />
+
+        <TextView
+            android:id="@+id/tt_register_user_proto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_user_proto"
+            android:textColor="@color/tab_press"
+            android:textSize="@dimen/image_size_notice" />
+    </LinearLayout>
+</LinearLayout>

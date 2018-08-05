@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:gravity="center"
+    >
+    <LinearLayout
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:layout_gravity = "center"
+        android:gravity = "center|top"
+        android:orientation = "horizontal">
+
+        <RelativeLayout
+            android:id = "@+id/view_one"
+            android:layout_width = "0dp"
+            android:layout_height = "@dimen/fragment_home_goods_list_header_parent_hw"
+            android:layout_marginRight = "@dimen/fragment_home_goods_list_header_space"
+            android:layout_marginTop = "10dp"
+            android:layout_weight = "1">
+
+            <ImageView
+                android:id = "@+id/view_img_1"
+                android:layout_width = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_height = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/home_header_1" />
+
+            <TextView
+                android:id = "@+id/view_one_title"
+                android:layout_width = "wrap_content"
+                android:layout_height = "20dp"
+                android:layout_below = "@+id/view_img_1"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:text = "拿趣惠用" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id = "@+id/view_two"
+            android:layout_width = "0dp"
+            android:layout_height = "@dimen/fragment_home_goods_list_header_parent_hw"
+            android:layout_marginRight = "@dimen/fragment_home_goods_list_header_space"
+            android:layout_marginTop = "10dp"
+            android:layout_weight = "1">
+
+            <ImageView
+                android:id = "@+id/view_img_2"
+                android:layout_width = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_height = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/home_header_2" />
+
+            <TextView
+                android:id = "@+id/view_two_title"
+                android:layout_width = "wrap_content"
+                android:layout_height = "20dp"
+                android:layout_below = "@+id/view_img_2"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:text = "排行榜单" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id = "@+id/view_three"
+            android:layout_width = "0dp"
+            android:layout_height = "@dimen/fragment_home_goods_list_header_parent_hw"
+            android:layout_marginRight = "@dimen/fragment_home_goods_list_header_space"
+            android:layout_marginTop = "10dp"
+            android:layout_weight = "1">
+
+            <ImageView
+                android:id = "@+id/view_img_3"
+                android:layout_width = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_height = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/home_header_4" />
+
+            <TextView
+                android:id = "@+id/view_three_title"
+                android:layout_width = "wrap_content"
+                android:layout_height = "20dp"
+                android:layout_below = "@+id/view_img_3"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:text = "审核专区" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id = "@+id/view_four"
+            android:layout_width = "0dp"
+            android:layout_height = "@dimen/fragment_home_goods_list_header_parent_hw"
+            android:layout_marginTop = "10dp"
+            android:layout_weight = "1">
+
+            <ImageView
+                android:id = "@+id/view_img_4"
+                android:layout_width = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_height = "@dimen/fragment_home_goods_list_header_child_hw"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:background = "@drawable/home_header_3" />
+
+            <TextView
+                android:id = "@+id/view_four_title"
+                android:layout_width = "wrap_content"
+                android:layout_height = "20dp"
+                android:layout_below = "@+id/view_img_4"
+                android:layout_centerHorizontal = "true"
+                android:layout_marginTop = "10dp"
+                android:text = "心愿墙" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+    <dimen name="default_tab_text_size" >14sp</dimen >
+    <color name="default_tab_text_color" >@color/black</color >
+    <color name="default_tab_indicator_bg" >@android:color/transparent</color >
+    <color name="default_badge_bg" >@color/red</color >
+    <bool name="default_enable_indicator" >false</bool >
+</resources >

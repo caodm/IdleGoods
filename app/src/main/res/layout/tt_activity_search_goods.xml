@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_c11"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/action_bar_high"
+        android:background="@color/white_lab">
+
+        <LinearLayout
+            android:id="@+id/top_right_container"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/action_bar_high"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_marginRight="10.0dip"
+            android:gravity="center|right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/right_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/search"
+                android:textColor="@color/tab_press"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top_left_container"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/action_bar_high"
+            android:layout_marginLeft="10.0dip"
+            android:gravity="center_vertical"
+            android:minWidth="30.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/left_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="center"
+                android:src="@drawable/tt_register_back" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="258.0dip"
+            android:layout_height="30.0dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/tt_first_page_search_bg">
+
+            <ImageView
+                android:id="@+id/tt_activity_goods_search_search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8.0dip"
+                android:src="@drawable/tt_activity_search" />
+
+            <EditText
+                android:id="@+id/tt_activity_goods_search_search_content"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="8.0dip"
+                android:layout_toRightOf="@+id/tt_activity_goods_search_search_icon"
+                android:background="@null"
+                android:hint="请输入宝贝关键字"
+                android:singleLine="true"
+                android:textColor="@color/gray_c6"
+                android:textColorHint="@color/gray_c7"
+                android:textSize="@dimen/text_size_normal" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
+
+    <ListView
+        android:id="@+id/list_goods"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:scrollbars="none"
+
+        />
+
+    <RelativeLayout
+        android:id="@+id/listview_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/empty_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/listview_empty"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/empty_img"
+            android:text="列表为空"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/gray_c7"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

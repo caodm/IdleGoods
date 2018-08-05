@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources >
+    <!-- 主界面样式定义 -->
+    <style name="Widget" >
+    </style >
+
+    <style name="Widget.TabButton" parent="Widget" >
+        <item name="android:background" >@color/grey_light</item >
+        <item name="tabLabelTextSize" >@dimen/font_tiny</item >
+        <item name="tabLabelTextColor" >@color/tab_label_color</item >
+        <item name="enableTabIndicator" >false</item >
+    </style >
+</resources >

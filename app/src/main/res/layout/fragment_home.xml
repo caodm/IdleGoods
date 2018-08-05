@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+       <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:divider="@null"/>
+
+        <RelativeLayout
+            android:id="@+id/tt_fragment_first_page_header_view"
+            android:background="@color/white_transparent_lab"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_alignParentTop="true">
+            <RelativeLayout android:id="@+id/tt_fragment_first_page_search_goods"
+                            android:background="@drawable/tt_first_page_search_bg"
+                            android:layout_width="fill_parent"
+                            android:layout_height="32.0dip"
+                            android:layout_marginLeft="10.0dip"
+                            android:layout_marginRight="10.0dip"
+                            android:layout_toLeftOf="@+id/tt_fragment_first_page_goods_category"
+                            android:layout_centerVertical="true">
+                <ImageView
+                    android:id="@+id/tt_fragment_first_page_search_goods_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:src="@drawable/tt_search_goods_transparent"
+                    android:layout_centerVertical="true" />
+                <TextView
+                    android:textSize="@dimen/text_size_normal"
+                    android:textColor="@color/white"
+                    android:id="@+id/tt_fragment_first_page_search_goods_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10.0dip"
+                    android:text="搜索宝贝"
+                    android:layout_toRightOf="@id/tt_fragment_first_page_search_goods_icon"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <ImageView android:id="@+id/tt_fragment_first_page_goods_category"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginRight="10.0dip"
+                       android:src="@drawable/tt_goods_category_transparent"
+                       android:layout_alignParentRight="true"
+                       android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout >

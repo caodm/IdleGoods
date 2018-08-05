@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_c11"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/tt_person_info_user_avator"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:text="@string/user_avator"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal" />
+
+        <ImageView
+            android:id="@+id/tt_personinfo_avator"
+            android:layout_width="32.0dip"
+            android:layout_height="32.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="140.0dip"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tt_default_user_image" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
+
+    <RelativeLayout
+        android:id="@+id/tt_person_info_user_nickname"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:text="@string/user_nickname"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal" />
+
+        <EditText
+            android:id="@+id/tt_person_info_nickname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="140.0dip"
+            android:background="@null"
+            android:textColor="@color/gray_c7"
+            android:textSize="@dimen/text_size_normal">
+
+            <requestFocus />
+        </EditText>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
+
+    <RelativeLayout
+        android:id="@+id/tt_person_info_user_sex"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:text="@string/sex"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:id="@+id/tt_person_info_sex_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="140.0dip"
+            android:text="@string/male"
+            android:textColor="@color/gray_c7"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:id="@+id/tt_person_info_sex_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="50.0dip"
+            android:layout_toRightOf="@+id/tt_person_info_sex_male"
+            android:text="@string/female"
+            android:textColor="@color/gray_c7"
+            android:textSize="@dimen/text_size_normal" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
+
+    <Button
+        android:id="@+id/tt_register_info_btn_register"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/register_btn_high"
+        android:layout_marginLeft="@dimen/login_item_to_bottom"
+        android:layout_marginRight="@dimen/login_item_to_bottom"
+        android:layout_marginTop="100.0dip"
+        android:background="@drawable/tt_login_bg"
+        android:text="@string/register"
+        android:textColor="@color/white_c12"
+        android:textSize="@dimen/text_size" />
+</LinearLayout>

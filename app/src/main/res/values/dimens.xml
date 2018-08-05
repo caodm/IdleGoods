@@ -1,0 +1,124 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="font_tiny">10sp</dimen>
+
+    <dimen name="action_bar_high">48.0dip</dimen>
+    <dimen name="albumitem_content_height">70.0dip</dimen>
+    <dimen name="albumitem_height">90.0dip</dimen>
+    <dimen name="albumitem_image_height">20.0dip</dimen>
+    <dimen name="alphabet_size">12.0dip</dimen>
+    <dimen name="big_notice_size">30.0dip</dimen>
+    <dimen name="big_title_size">20.0dip</dimen>
+    <dimen name="click_change_ip">240.0dip</dimen>
+    <dimen name="collection_photo_toolbar_height">45.0dip</dimen>
+    <dimen name="default_circle_indicator_radius">3.0dip</dimen>
+    <dimen name="default_circle_indicator_stroke_width">1.0dip</dimen>
+    <dimen name="default_line_indicator_gap_width">4.0dip</dimen>
+    <dimen name="default_line_indicator_line_width">12.0dip</dimen>
+    <dimen name="default_line_indicator_stroke_width">1.0dip</dimen>
+    <dimen name="default_title_indicator_clip_padding">4.0dip</dimen>
+    <dimen name="default_title_indicator_footer_indicator_height">4.0dip</dimen>
+    <dimen name="default_title_indicator_footer_indicator_underline_padding">20.0dip</dimen>
+    <dimen name="default_title_indicator_footer_line_height">2.0dip</dimen>
+    <dimen name="default_title_indicator_footer_padding">7.0dip</dimen>
+    <dimen name="default_title_indicator_text_size">15.0dip</dimen>
+    <dimen name="default_title_indicator_title_padding">5.0dip</dimen>
+    <dimen name="default_title_indicator_top_padding">7.0dip</dimen>
+    <dimen name="header_footer_left_right_padding">24.0dip</dimen>
+    <dimen name="header_footer_top_bottom_padding">12.0dip</dimen>
+    <dimen name="image_size_notice">10.0dip</dimen>
+    <dimen name="image_width">40.0dip</dimen>
+    <dimen name="imagetoRight">15.0dip</dimen>
+    <dimen name="indicator_corner_radius">12.0dip</dimen>
+    <dimen name="indicator_internal_padding">4.0dip</dimen>
+    <dimen name="indicator_right_padding">10.0dip</dimen>
+    <dimen name="layout_title_content_heigh">30.0dip</dimen>
+    <dimen name="layout_title_heigh">45.0dip</dimen>
+    <dimen name="layout_title_mini_textsize">16.0dip</dimen>
+    <dimen name="list_item_all">64.0dip</dimen>
+    <dimen name="list_two_line">48.0dip</dimen>
+    <dimen name="login_item_high">50.0dip</dimen>
+    <dimen name="login_item_to_bottom">20.0dip</dimen>
+    <dimen name="login_text_size">16.0dip</dimen>
+    <dimen name="message_item_popup_height">50.0dip</dimen>
+    <dimen name="message_item_popup_width_double_long">150.0dip</dimen>
+    <dimen name="message_item_popup_width_double_short">140.0dip</dimen>
+    <dimen name="message_item_popup_width_single_long">90.0dip</dimen>
+    <dimen name="message_item_popup_width_single_short">60.0dip</dimen>
+    <dimen name="message_out_top">-3.0dip</dimen>
+    <dimen name="message_pic_high">120.0dip</dimen>
+    <dimen name="message_pic_wight">90.0dip</dimen>
+    <dimen name="register_btn_high">44.0dip</dimen>
+    <dimen name="register_header_text_size">18.0dip</dimen>
+    <dimen name="register_normal_text_size">17.0dip</dimen>
+    <dimen name="register_textview_high">44.0dip</dimen>
+    <dimen name="split_width">1.0px</dimen>
+    <dimen name="sticky_item_horizontalSpacing">2.0dip</dimen>
+    <dimen name="sticky_item_verticalSpacing">2.0dip</dimen>
+    <dimen name="tab_bar_high">50.0dip</dimen>
+    <dimen name="text_size">16.0dip</dimen>
+    <dimen name="text_size_litte_notice">12.0dip</dimen>
+    <dimen name="text_size_normal">15.0dip</dimen>
+    <dimen name="text_size_notice">13.0dip</dimen>
+    <dimen name="text_size_small_notice">8.0dip</dimen>
+    <dimen name="title_size">18.0dip</dimen>
+    <dimen name="to_botton">15.0dip</dimen>
+    <dimen name="tweet_comment_input_width">272.0dip</dimen>
+    <dimen name="tweet_operatiom_operation_devide">15.0dip</dimen>
+    <dimen name="tweet_to_bottom">10.0dip</dimen>
+    <dimen name="tweet_view_bottom">10.0dip</dimen>
+    <dimen name="twet_operation_item_width">70.0dip</dimen>
+    <dimen name="umeng_fb_item_content_size">14.0sp</dimen>
+    <dimen name="umeng_fb_item_height">48.0dip</dimen>
+    <dimen name="umeng_fb_item_line_height">0.8000001dip</dimen>
+    <dimen name="umeng_fb_item_time_size">12.0sp</dimen>
+    <dimen name="umeng_fb_record_btn_text_size">20.0sp</dimen>
+    <dimen name="umeng_fb_spinner_padding_left">12.0dip</dimen>
+    <dimen name="umeng_socialize_pad_window_height">350.0dip</dimen>
+    <dimen name="umeng_socialize_pad_window_width">580.0dip</dimen>
+
+    <dimen name="fragment_home_goods_list_header_child_hw">80.0dip</dimen>
+    <dimen name="fragment_home_goods_list_header_parent_hw">130.0dip</dimen>
+    <dimen name="fragment_home_goods_list_header_space">4dp</dimen>
+
+    <dimen name="dimen_1">1.0dip</dimen>
+    <dimen name="dimen_3">3.0dip</dimen>
+    <dimen name="dimen_5">5.0dip</dimen>
+    <dimen name="dimen_6">6.0dip</dimen>
+    <dimen name="dimen_7">7.0dip</dimen>
+    <dimen name="dimen_10">10.0dip</dimen>
+    <dimen name="dimen_15">15.0dip</dimen>
+    <dimen name="dimen_20">20.0dip</dimen>
+    <dimen name="dimen_30">30.0dip</dimen>
+    <dimen name="dimen_40">40.0dip</dimen>
+    <dimen name="dimen_45">45.0dip</dimen>
+    <dimen name="dimen_50">50.0dip</dimen>
+    <dimen name="dimen_51">51.0dip</dimen>
+    <dimen name="dimen_55">55.0dip</dimen>
+    <dimen name="dimen_100">100.0dip</dimen>
+    <dimen name="dimen_130">130.0dip</dimen>
+    <dimen name="text_common_size_13">13.0sp</dimen>
+    <dimen name="text_common_size_14">14.0sp</dimen>
+    <dimen name="text_common_size_15">15.0sp</dimen>
+    <dimen name="text_common_size_16">16.0sp</dimen>
+    <dimen name="text_common_size_18">18.0sp</dimen>
+
+    <!-- 自定义SettingsCustomView的属性值. -->
+    <dimen name="person_head_relayout_padding">5dip</dimen>
+    <dimen name="margin_space">10dip</dimen>
+    <dimen name="margin_space_big">15dip</dimen>
+    <dimen name="margin_space_half">5dip</dimen>
+    <dimen name="arrow_image_size">25dip</dimen>
+    <dimen name="height_row">45dip</dimen>
+
+    <!-- 字体大小 -->
+    <dimen name="textSizeSmall">10sp</dimen>
+    <dimen name="textSizeNormal">12sp</dimen>
+    <dimen name="textSizeMedium">14sp</dimen>
+    <dimen name="textSizeBig">16sp</dimen>
+    <dimen name="textSizeHuge">18sp</dimen>
+</resources>

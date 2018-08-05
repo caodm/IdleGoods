@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android = "http://schemas.android.com/apk/res/android"
+    xmlns:tools = "http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background = "#d9ead3">
+
+    <com.cdm.idlefish.view.CircleImageView
+        android:id = "@+id/image_imgv"
+        android:layout_width = "70dip"
+        android:layout_height = "70dip"
+        android:layout_alignParentLeft = "true"
+        android:layout_centerVertical = "true"
+        android:layout_marginLeft = "20dip"
+        android:src = "@drawable/person_default_head" />
+
+    <TextView
+        android:id = "@+id/title_txtv"
+        style = "@style/textStyle.Normal.black"
+        android:layout_width = "match_parent"
+        android:layout_height = "match_parent"
+        android:layout_marginLeft = "20dip"
+        android:layout_toRightOf = "@+id/image_imgv"
+        android:gravity = "center_vertical|left"
+        android:text = "@string/person_nickname" />
+
+</RelativeLayout>

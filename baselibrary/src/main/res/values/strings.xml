@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BaseLibrary</string>
+    <string name="btn_submit_label">提交</string>
+</resources>

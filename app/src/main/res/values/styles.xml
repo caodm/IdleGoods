@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name = "MyDialogStyleLoading" parent = "@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name = "android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <!-- <item name="android:windowIsFloating">true</item> -->
+        <!-- 半透明 -->
+        <item name = "android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name = "android:windowNoTitle">true</item>
+        <!-- 背景透明 -->
+        <item name = "android:windowBackground">@android:color/transparent</item>
+
+        <item name = "android:windowFullscreen">false</item>
+        <item name = "android:backgroundDimAmount">0.0</item>
+
+    </style>
+
+    <style name = "AppTheme" parent = "Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name = "colorPrimary">@color/colorPrimary</item>
+        <item name = "colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name = "colorAccent">@color/colorAccent</item>
+        <item name = "NavigationButtonTabStyle">@style/Widget.TabButton</item>
+    </style>
+
+    <style name = "AppTheme.AppBarOverlay" parent = "@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name = "AppTheme.PopupOverlay" parent = "@style/ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- 普通号 , 黑色 -->
+    <style name = "textStyle"></style>
+
+    <style name = "textStyle.Normal">
+        <item name = "android:textSize">@dimen/textSizeNormal</item>
+    </style>
+
+    <style name = "textStyle.Normal.black" parent = "textStyle.Normal">
+        <item name = "android:textColor">@android:color/black</item>
+    </style>
+
+    <style name = "separator_line">
+        <item name = "android:background">#ffe0e0e0</item>
+        <item name = "android:layout_width">fill_parent</item>
+        <item name = "android:layout_height">1.0px</item>
+    </style>
+
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tt_activity_list"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white_c11"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            >
+            <include
+                android:id="@+id/tt_view_goods_image_stub"
+                layout="@layout/tt_view_goods_detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <include
+                android:id="@+id/tt_view_goods_detail_stub"
+                layout="@layout/tt_view_goods_detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/tt_goods_detail_operation"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/tt_goods_detail_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <ImageView
+                android:id="@+id/tt_goods_detail_comment_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:src="@drawable/tt_goods_operation_comment" />
+
+            <TextView
+                android:id="@+id/tt_goods_detail_comment_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/tt_goods_detail_comment_icon"
+                android:textColor="@color/gray_c7"
+                android:text="0"
+                android:textSize="@dimen/text_size_notice" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tt_goods_detail_share"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toRightOf="@+id/tt_goods_detail_comment">
+
+            <ImageView
+                android:id="@+id/tt_goods_detail_share_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:src="@drawable/tt_goods_operation_share" />
+
+            <TextView
+                android:id="@+id/tt_goods_detail_share_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/tt_goods_detail_share_icon"
+                android:text="@string/invite_friend"
+                android:textColor="@color/gray_c7"
+                android:textSize="@dimen/text_size_notice" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/tt_goods_detail_chat_express_prize"
+            android:layout_width="70.0dip"
+            android:layout_height="27.0dip"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20.0dip"
+            android:layout_toLeftOf="@+id/tt_goods_detail_user_operation"
+            android:background="@drawable/tt_radio_solid_button_org"
+            android:text="计算邮费"
+            android:textColor="@color/tab_press"
+            android:textSize="@dimen/text_size_normal" />
+
+        <Button
+            android:id="@+id/tt_goods_detail_user_operation"
+            android:layout_width="120.0dip"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_size"
+            android:background="@color/md_red_300"
+            android:text="免费拿"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

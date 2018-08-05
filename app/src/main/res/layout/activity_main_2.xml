@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mainTabBar"
+        android:visibility="visible" />
+
+    <com.startsmake.mainnavigatetabbar.widget.MainNavigateTabBar
+        android:id="@+id/mainTabBar"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/white"
+        app:containerId="@+id/main_container"
+        app:navigateTabSelectedTextColor="@color/umeng_fb_audo_dialog_bg"
+        app:navigateTabTextColor="@color/comui_tab_text_color" />
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/mainTabBar"
+        android:background="@mipmap/comui_bar_top_shadow" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:onClick="onClickPublishrequirement"
+        android:layout_marginBottom="26dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        app:srcCompat="@mipmap/publish_entry_resale" />
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/publish_entry_with_photo"
+        android:onClick="onClickPublishPhoto"
+        android:layout_marginBottom="26dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76.0dip"
+        android:layout_alignParentBottom="true"
+        android:background="@android:color/transparent"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/tab_post_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickPublish"
+            android:src="@drawable/tt_tab_send_goods" />
+    </LinearLayout>
+</RelativeLayout>
+
