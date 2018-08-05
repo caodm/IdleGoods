@@ -123,7 +123,7 @@
     <string name="selectsex">请选择性别</string>
     <string name="send">发送</string>
     <string name="send_message">发送</string>
-    <string name="send_type">邮费由获赠方支付</string>
+    <string name="send_type">邮费支付由买卖双方商量</string>
     <string name="set_accept_time_fail">设置接收时间失败： %1$s.</string>
     <string name="set_accept_time_success">设置接收时间： %1$s - %2$s 成功.</string>
     <string name="set_alias_fail">设置别名： \"%1$s\" 失败.</string>

@@ -73,13 +73,58 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/split_width"
         android:background="@color/split" />
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:layout_marginTop="10dp"
+        android:background="@color/white_c12">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_toLeftOf="@+id/tt_view_goods_detail_categroy"
+            android:singleLine="true"
+            android:textColor="@color/tab_press"
+            android:textSize="@dimen/title_size"
+            android:text="物品分类"/>
+
+        <TextView
+            android:id="@+id/tt_view_goods_detail_categroy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_notice"
+            android:text="服务类"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical">
+        <TextView
+            android:id="@+id/tt_view_goods_detail_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal"
+            android:hint="物品标题"
+            />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/split_width"
+            android:background="@color/split" />
         <TextView
             android:id="@+id/tt_view_goods_detail_description"
             android:layout_width="fill_parent"
@@ -87,13 +132,21 @@
             android:layout_marginLeft="10.0dip"
             android:layout_marginRight="10.0dip"
             android:layout_marginTop="10.0dip"
+            android:layout_marginBottom="10dp"
             android:textColor="@color/gray_c5"
-            android:textSize="@dimen/text_size_normal" />
+            android:textSize="@dimen/text_size_normal"
+            android:hint="物品详情"
+            />
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/split_width"
+            android:background="@color/split" />
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10.0dip">
+            android:layout_marginTop="10.0dip"
+            android:layout_marginBottom="10dp">
 
             <ImageView
                 android:id="@+id/tt_view_goods_detail_send_position"
@@ -121,7 +174,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="12.0dip"
                 android:layout_toRightOf="@+id/tt_view_goods_detail_owner_position"
-                android:src="@drawable/tt_goods_info_send" />
+                android:src="@drawable/tt_goods_info_send"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -131,7 +185,8 @@
                 android:layout_toRightOf="@+id/tt_view_goods_detail_send_type"
                 android:text="@string/send_type"
                 android:textColor="@color/tab_press"
-                android:textSize="@dimen/image_size_notice" />
+                android:textSize="@dimen/image_size_notice"
+                android:visibility="gone"/>
 
             <TextView
                 android:id="@+id/tt_view_goods_detail_send_time"
@@ -149,13 +204,14 @@
             android:layout_width="fill_parent"
             android:layout_height="@dimen/split_width"
             android:layout_marginTop="10.0dip"
-            android:background="@color/split" />
+            android:background="@color/split"
+            android:visibility="gone"/>
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/tt_goods_detail_weight_volume"
         android:layout_width="fill_parent"
-        android:layout_height="@dimen/tab_bar_high"
+        android:layout_height="40.0dip"
         android:layout_marginTop="10.0dip"
         android:background="@color/white">
 
@@ -176,6 +232,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10.0dip"
             android:textColor="@color/gray_c7"
+            android:text="15"
             android:textSize="@dimen/text_size_normal" />
 
         <View
@@ -242,7 +299,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="40.0dip"
-            android:layout_marginTop="10.0dip"
+            android:layout_marginTop="0dip"
             android:background="@color/white">
 
             <TextView
@@ -250,8 +307,19 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10.0dip"
-                android:text="竞价流程"
+                android:text="物品售价"
                 android:textColor="@color/gray_c5"
+                android:textSize="@dimen/text_size_normal" />
+
+            <TextView
+                android:id="@+id/tt_goods_detail_info_sellprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10.0dip"
+                android:textColor="@color/gray_c7"
+                android:text="15"
                 android:textSize="@dimen/text_size_normal" />
         </RelativeLayout>
 
@@ -259,23 +327,25 @@
             android:layout_width="fill_parent"
             android:layout_height="60.0dip"
             android:scaleType="fitXY"
-            android:src="@drawable/tt_auction_flow" />
+            android:src="@drawable/tt_auction_flow"
+            android:visibility="gone"/>
 
         <RelativeLayout
             android:id="@+id/tt_view_goods_detail_auction_rule"
             android:layout_width="fill_parent"
             android:layout_height="@dimen/tab_bar_high"
             android:layout_marginTop="10.0dip"
-            android:background="@drawable/tt_white_press_bg">
+            android:background="@drawable/tt_white_press_bg"
+            android:visibility="gone">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10.0dip"
-                android:text="竞价规则"
-                android:textColor="@color/gray_c5"
-                android:textSize="@dimen/text_size" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:text="竞价规则"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size" />
 
             <ImageView
                 android:layout_width="15.0dip"
@@ -286,7 +356,36 @@
                 android:src="@drawable/tt_register_more" />
         </RelativeLayout>
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="@color/white_c12"
+        android:visibility="visible">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_toLeftOf="@+id/tt_goods_detail_info_originprice"
+            android:singleLine="true"
+            android:text="物品原价"
+            android:textColor="@color/tab_press"
+            android:textSize="@dimen/title_size" />
+
+        <TextView
+            android:id="@+id/tt_goods_detail_info_originprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_notice"
+            android:text="00"/>
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/tt_view_goods_detail_comment"
         android:layout_width="fill_parent"
