@@ -3,7 +3,8 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@color/white_c11"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="10.0dp">
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -56,7 +57,9 @@
             android:layout_height="32.0dip"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10.0dip"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src = "@drawable/person_default_head"
+            />
 
         <TextView
             android:id="@+id/tt_view_goods_detail_owner_name"
@@ -88,8 +91,8 @@
             android:layout_marginRight="10.0dip"
             android:layout_toLeftOf="@+id/tt_view_goods_detail_categroy"
             android:singleLine="true"
-            android:textColor="@color/tab_press"
-            android:textSize="@dimen/title_size"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal"
             android:text="物品分类"/>
 
         <TextView
@@ -100,9 +103,14 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10.0dip"
             android:textColor="@color/gray_c5"
+            android:singleLine="true"
             android:textSize="@dimen/text_size_notice"
             android:text="服务类"/>
     </RelativeLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -372,8 +380,8 @@
             android:layout_toLeftOf="@+id/tt_goods_detail_info_originprice"
             android:singleLine="true"
             android:text="物品原价"
-            android:textColor="@color/tab_press"
-            android:textSize="@dimen/title_size" />
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal" />
 
         <TextView
             android:id="@+id/tt_goods_detail_info_originprice"
