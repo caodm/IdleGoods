@@ -35,7 +35,7 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
     private HomeGoodEntity goodsEntity;
     private String[] mStrArr = null;
     private CircleImageView mUserIcon;
-    private TextView mUserTitle;
+    private TextView mUserName,mType,mTitle,mContent,mWeight,mSellprice,mOriginprice,mPhone;
     private String goodsId = "";
     private TextView mTxtViewpagerIndex;
 
@@ -52,8 +52,16 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
         mViewPager = (ViewPager) mViewImgLayout.findViewById(R.id.tt_view_goods_image_viewpager);
         mAdapter = new GoodViewPagerAdapter();
         mUserIcon = (CircleImageView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_owner_image);
-        mUserTitle = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_owner_name);
+        mUserName = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_owner_name);
         mTxtViewpagerIndex = (TextView) mViewImgLayout.findViewById(R.id.tt_view_goods_viewpager_index);
+
+        mType = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_categroy);
+        mTitle = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_title);
+        mContent = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_view_goods_detail_description);
+        mWeight = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_weight_volume);
+        mSellprice = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_sellprice);
+        mOriginprice = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_originprice);
+        mPhone = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_phone);
     }
 
     @Override
@@ -86,7 +94,14 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
         }
         //更新头像和昵称
         ImageLoader.getInstance().displayImage(goodsEntity.getUser_icon(),mUserIcon);
-        mUserTitle.setText(goodsEntity.getTitle());
+        mUserName.setText(goodsEntity.getUser_name());
+        mType.setText(goodsEntity.getType()+"");
+        mTitle.setText(goodsEntity.getTitle());
+        mContent.setText(goodsEntity.getContent());
+        mWeight.setText(goodsEntity.getWeight());
+        mSellprice.setText(goodsEntity.getSellPrice()+"");
+        mOriginprice.setText(goodsEntity.getOriginalPrice()+"");
+        mPhone.setText(goodsEntity.getPhone());
 
     }
 

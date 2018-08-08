@@ -49,7 +49,9 @@
             android:layout_marginLeft="94.0dip"
             android:layout_marginTop="30.0dip"
             android:background="@color/blue"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            />
 
         <ImageView
             android:id="@+id/tt_goods_info_owner_user_image_bg"

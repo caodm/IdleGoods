@@ -11,16 +11,45 @@ public class HomeGoodEntity implements Parcelable {
     private int user_id;
     /** 用户头像 **/
     private String user_icon;
+
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    /** 用户名称 **/
+    private String user_name;
     /** 物品标题 **/
     private String title;
     /**  **/
     private String topLine;
     private int data_flag;
     private String image;
+    private int type;
     /** 物品描述 **/
     private String content;
     private String operation;
 
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    private String weight;
     /** 物品售价 **/
     private float sellPrice;
     /** 物品原价 **/
@@ -32,6 +61,27 @@ public class HomeGoodEntity implements Parcelable {
 
     }
 
+    public HomeGoodEntity(int id, int user_id, String user_icon, String user_name,
+                          String title, String topLine, int data_flag, String image,
+                          int type, String content, String operation, String weight,
+                          float sellPrice, float originalPrice, String phone) {
+        this.id = id;
+        this.user_id = user_id;
+        this.user_icon = user_icon;
+        this.user_name = user_name;
+        this.title = title;
+        this.topLine = topLine;
+        this.data_flag = data_flag;
+        this.image = image;
+        this.type = type;
+        this.content = content;
+        this.operation = operation;
+        this.weight = weight;
+        this.sellPrice = sellPrice;
+        this.originalPrice = originalPrice;
+        this.phone = phone;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -39,30 +89,6 @@ public class HomeGoodEntity implements Parcelable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-    protected HomeGoodEntity(Parcel in) {
-        id = in.readInt();
-        user_id = in.readInt();
-        user_icon = in.readString();
-        title = in.readString();
-        topLine = in.readString();
-        data_flag = in.readInt();
-        image = in.readString();
-        content = in.readString();
-        operation = in.readString();
-    }
-
-    public static final Creator<HomeGoodEntity> CREATOR = new Creator<HomeGoodEntity>() {
-        @Override
-        public HomeGoodEntity createFromParcel(Parcel in) {
-            return new HomeGoodEntity(in);
-        }
-
-        @Override
-        public HomeGoodEntity[] newArray(int size) {
-            return new HomeGoodEntity[size];
-        }
-    };
 
     public int getId() {
         return id;
@@ -171,15 +197,51 @@ public class HomeGoodEntity implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(id);
-        parcel.writeInt(user_id);
-        parcel.writeString(user_icon);
-        parcel.writeString(title);
-        parcel.writeString(topLine);
-        parcel.writeInt(data_flag);
-        parcel.writeString(image);
-        parcel.writeString(content);
-        parcel.writeString(operation);
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.id);
+        dest.writeInt(this.user_id);
+        dest.writeString(this.user_icon);
+        dest.writeString(this.user_name);
+        dest.writeString(this.title);
+        dest.writeString(this.topLine);
+        dest.writeInt(this.data_flag);
+        dest.writeString(this.image);
+        dest.writeInt(this.type);
+        dest.writeString(this.content);
+        dest.writeString(this.operation);
+        dest.writeString(this.weight);
+        dest.writeFloat(this.sellPrice);
+        dest.writeFloat(this.originalPrice);
+        dest.writeString(this.phone);
     }
+
+    protected HomeGoodEntity(Parcel in) {
+        this.id = in.readInt();
+        this.user_id = in.readInt();
+        this.user_icon = in.readString();
+        this.user_name = in.readString();
+        this.title = in.readString();
+        this.topLine = in.readString();
+        this.data_flag = in.readInt();
+        this.image = in.readString();
+        this.type = in.readInt();
+        this.content = in.readString();
+        this.operation = in.readString();
+        this.weight = in.readString();
+        this.sellPrice = in.readFloat();
+        this.originalPrice = in.readFloat();
+        this.phone = in.readString();
+    }
+
+    public static final Creator<HomeGoodEntity> CREATOR = new Creator<HomeGoodEntity>() {
+        @Override
+        public HomeGoodEntity createFromParcel(Parcel source) {
+            return new HomeGoodEntity(source);
+        }
+
+        @Override
+        public HomeGoodEntity[] newArray(int size) {
+            return new HomeGoodEntity[size];
+        }
+    };
 }

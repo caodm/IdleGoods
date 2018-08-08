@@ -217,6 +217,36 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"
+        android:background="@color/white_c12"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:layout_toLeftOf="@+id/tt_goods_detail_info_phone"
+            android:singleLine="true"
+            android:text="联系方式"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_normal" />
+
+        <TextView
+            android:id="@+id/tt_goods_detail_info_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10.0dip"
+            android:textColor="@color/gray_c5"
+            android:textSize="@dimen/text_size_notice"
+            android:text="000000"/>
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/tt_goods_detail_weight_volume"
         android:layout_width="fill_parent"
         android:layout_height="40.0dip"
@@ -240,7 +270,7 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="10.0dip"
             android:textColor="@color/gray_c7"
-            android:text="15"
+            android:text="00"
             android:textSize="@dimen/text_size_normal" />
 
         <View
@@ -327,7 +357,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="10.0dip"
                 android:textColor="@color/gray_c7"
-                android:text="15"
+                android:text="00"
                 android:textSize="@dimen/text_size_normal" />
         </RelativeLayout>
 
@@ -364,6 +394,10 @@
                 android:src="@drawable/tt_register_more" />
         </RelativeLayout>
     </LinearLayout>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/split_width"
+        android:background="@color/split" />
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="40.0dip"
@@ -399,7 +433,8 @@
         android:layout_width="fill_parent"
         android:layout_height="32.0dip"
         android:layout_marginTop="10.0dip"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -414,5 +449,6 @@
     <View
         android:layout_width="fill_parent"
         android:layout_height="@dimen/split_width"
-        android:background="@color/split" />
+        android:background="@color/split" android:visibility="gone" />
+
 </LinearLayout>

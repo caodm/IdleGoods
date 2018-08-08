@@ -49,7 +49,7 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView title;
+        TextView username;
         ImageView topline;
         CircleImageView usericon;
         TextView flag;
@@ -57,7 +57,7 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
         ImageView image2;
         ImageView image3;
         ImageView image;
-        TextView content;
+        TextView title;
         Button operation;
         View view;
 
@@ -65,14 +65,14 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
             super(itemView);
             this.view = itemView.findViewById(R.id.tt_goods_info_goods_image_layout);
             topline = (ImageView) itemView.findViewById(R.id.tt_goods_info_owner_user_image_topline);
-            title = (TextView) itemView.findViewById(R.id.tt_goods_info_owner_user_name);
+            username = (TextView) itemView.findViewById(R.id.tt_goods_info_owner_user_name);
             usericon = (CircleImageView) itemView.findViewById(R.id.tt_goods_info_owner_user_image);
             flag = (TextView) itemView.findViewById(R.id.tt_goods_info_flag);
             image1 = (ImageView) itemView.findViewById(R.id.tt_goods_info_goods_image_1);
             image2 = (ImageView) itemView.findViewById(R.id.tt_goods_info_goods_image_2);
             image3 = (ImageView) itemView.findViewById(R.id.tt_goods_info_goods_image_3);
             image = (ImageView) itemView.findViewById(R.id.tt_goods_info_goods_image);
-            content = (TextView) itemView.findViewById(R.id.tt_goods_info_goods_des);
+            title = (TextView) itemView.findViewById(R.id.tt_goods_info_goods_des);
             operation = (Button) itemView.findViewById(R.id.tt_item_goods_info_operation);
         }
 
@@ -85,8 +85,8 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
                 ImageLoader.getInstance().displayImage(entity.getTopLine(),topline);
                 ImageLoader.getInstance().displayImage(entity.getUser_icon(),usericon);
             }
-            content.setText(entity.getContent());
             title.setText(entity.getTitle());
+            username.setText(entity.getUser_name());
             String[] str = StringUtil.splitString(entity.getImage(),"@");
             if(str == null){
                 view.setVisibility(View.GONE);

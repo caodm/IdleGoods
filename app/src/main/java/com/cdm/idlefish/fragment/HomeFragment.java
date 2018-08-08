@@ -192,19 +192,31 @@ public class HomeFragment extends BaseFragment {
             item.setUser_id(i);
             item.setContent(" i =="+i);
             if(i==0){
+                item.setUser_name("Tom");
                 item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/ac0730029d.jpg");
                 item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
                 item.setTitle("深大校花温心尽显温婉可人写真照");
                 item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
                 item.setTopLine("温心");
+
+                item.setOriginalPrice(200);
+                item.setSellPrice(10);
+                item.setPhone("021-022112");
+                item.setWeight("50");
             }else if(i==1) {
+                item.setUser_name("Tonny");
                 item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
                         "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg");
                 item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
                 item.setTitle("深大校花温心尽显温婉可人写真照");
                 item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
                 item.setTopLine("温心");
+                item.setOriginalPrice(200);
+                item.setSellPrice(10);
+                item.setPhone("021-022112");
+                item.setWeight("50");
             }else if(i==2) {
+                item.setUser_name("Sammy");
                 item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
                         "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg@" +
                         "http://www.27270.com/word/dongwushijie/2018/283328_2.html");
@@ -212,7 +224,12 @@ public class HomeFragment extends BaseFragment {
                 item.setTitle("深大校花温心尽显温婉可人写真照");
                 item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
                 item.setTopLine("温心");
+                item.setOriginalPrice(200);
+                item.setSellPrice(10);
+                item.setPhone("021-022112");
+                item.setWeight("50");
             }else if(i==3) {
+                item.setUser_name("lily");
                 item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg@" +
                         "http://www.27270.com/word/dongwushijie/2018/283328_2.html@" +
                         "http://t2.hddhhn.com/uploads/tu/201806/9999/f13ae9f84b.jpg");
@@ -220,13 +237,22 @@ public class HomeFragment extends BaseFragment {
                 item.setTitle("深大校花温心尽显温婉可人写真照");
                 item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
                 item.setTopLine("温心");
+                item.setOriginalPrice(200);
+                item.setSellPrice(10);
+                item.setPhone("021-022112");
+                item.setWeight("50");
             }else if(i==4) {
+                item.setUser_name("jacky");
                 item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
                         "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg");
                 item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
                 item.setTitle("深大校花温心尽显温婉可人写真照");
                 item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
                 item.setTopLine("温心");
+                item.setOriginalPrice(200);
+                item.setSellPrice(10);
+                item.setPhone("021-022112");
+                item.setWeight("50");
             }
             list.add(item);
         }
