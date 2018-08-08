@@ -20,11 +20,11 @@ public class HomeGoodEntity implements Parcelable {
         this.user_name = user_name;
     }
 
-    public int getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -36,7 +36,7 @@ public class HomeGoodEntity implements Parcelable {
     private String topLine;
     private int data_flag;
     private String image;
-    private int type;
+    private String type;
     /** 物品描述 **/
     private String content;
     private String operation;
@@ -63,7 +63,7 @@ public class HomeGoodEntity implements Parcelable {
 
     public HomeGoodEntity(int id, int user_id, String user_icon, String user_name,
                           String title, String topLine, int data_flag, String image,
-                          int type, String content, String operation, String weight,
+                          String type, String content, String operation, String weight,
                           float sellPrice, float originalPrice, String phone) {
         this.id = id;
         this.user_id = user_id;
@@ -206,7 +206,7 @@ public class HomeGoodEntity implements Parcelable {
         dest.writeString(this.topLine);
         dest.writeInt(this.data_flag);
         dest.writeString(this.image);
-        dest.writeInt(this.type);
+        dest.writeString(this.type);
         dest.writeString(this.content);
         dest.writeString(this.operation);
         dest.writeString(this.weight);
@@ -224,7 +224,7 @@ public class HomeGoodEntity implements Parcelable {
         this.topLine = in.readString();
         this.data_flag = in.readInt();
         this.image = in.readString();
-        this.type = in.readInt();
+        this.type = in.readString();
         this.content = in.readString();
         this.operation = in.readString();
         this.weight = in.readString();

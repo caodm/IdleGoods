@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10.0dip"
-            android:text="全部分类"
+            android:text="常用分类"
             android:textColor="@color/gray_c6"
             android:textSize="@dimen/text_size_notice" />
     </RelativeLayout>

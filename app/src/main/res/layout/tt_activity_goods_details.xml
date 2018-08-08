@@ -60,7 +60,7 @@
                 android:layout_marginLeft="10.0dip"
                 android:layout_toRightOf="@+id/tt_goods_detail_comment_icon"
                 android:textColor="@color/gray_c7"
-                android:text="0"
+                android:text="收藏"
                 android:textSize="@dimen/text_size_notice" />
         </RelativeLayout>
 
@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_marginLeft="10.0dip"
-            android:layout_toRightOf="@+id/tt_goods_detail_comment">
+            android:layout_toRightOf="@+id/tt_goods_detail_comment" android:visibility="gone">
 
             <ImageView
                 android:id="@+id/tt_goods_detail_share_icon"
@@ -101,7 +101,8 @@
             android:background="@drawable/tt_radio_solid_button_org"
             android:text="计算邮费"
             android:textColor="@color/tab_press"
-            android:textSize="@dimen/text_size_normal" />
+            android:textSize="@dimen/text_size_normal"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/tt_goods_detail_user_operation"
@@ -111,7 +112,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/title_size"
             android:background="@color/md_red_300"
-            android:text="免费拿"
+            android:text="联系我"
             />
     </RelativeLayout>
 

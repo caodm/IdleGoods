@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cao.choosemorepicture.ImageLoader;
@@ -39,13 +40,17 @@ import java.util.List;
 public class NewFabuActivity extends BaseActivity implements View.OnClickListener{
 
     private static final int REQUEST_ADD_IMAGE = 2;
+    public static final int RESULT_SELECT_CATEGORY = 3;
+    private static final int REQUEST_SELECT_CATEGORY = 3;
     private int MY_PERMISSIONS_REQUEST = 20;
     MultiPictureView multiPictureView;
 
     private EditText mEditTextGoodsTitle,mEditTextGoodsContent,mEditTextSellPrice,
             mEditTextOriginalPrice,mEditTextPhone;
-    private String mGoodsTitle , mGoodsContent,mSellPrice,mOriginalPrice , mGoodsImage,mPhone;
+    private String mGoodsType,mGoodsTitle,mGoodsContent,mSellPrice,mOriginalPrice , mGoodsImage,mPhone;
     private Button mBtnPublish;
+    private View mFenleiView;
+    private TextView mGoodsFenleiTextview;
 
     @Override
     protected int setLayoutResourceID() {
@@ -70,6 +75,8 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
         mEditTextOriginalPrice = $(R.id.et_buy_price);
         mEditTextPhone = $(R.id.et_phone);
 
+        mFenleiView = $(R.id.rl_fenlei);
+        mGoodsFenleiTextview = $(R.id.tv_classify);
         mBtnPublish = $(R.id.btn_commit);
     }
 
@@ -87,6 +94,7 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initListener() {
+        mFenleiView.setOnClickListener(this);
         mBtnPublish.setOnClickListener(this);
     }
 
@@ -114,6 +122,7 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
         item.setSellPrice(Float.parseFloat(mSellPrice));
         item.setOriginalPrice(Float.parseFloat(mOriginalPrice));
         item.setPhone(mPhone);
+        item.setType(mGoodsType);
         if(_goodslist!=null && _goodslist.size()>0){
             _goodslist.add(0,item);
         }
@@ -248,12 +257,20 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
                 }
             }
             multiPictureView.addItem(mList);
+        } else if(requestCode == REQUEST_SELECT_CATEGORY && resultCode == RESULT_SELECT_CATEGORY){
+            mGoodsType = data.getStringExtra(Constants.GOODS_TYPE);
+            mGoodsFenleiTextview.setText(mGoodsType);
         }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.rl_fenlei:
+                startActivityForResult(
+                        new Intent(this,SelectGoodsCategoryActivity.class),
+                        REQUEST_SELECT_CATEGORY);
+                break;
             case R.id.btn_commit:
                 publishGoods();
                 break;
