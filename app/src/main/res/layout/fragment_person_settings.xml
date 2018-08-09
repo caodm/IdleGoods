@@ -48,7 +48,8 @@
                 android:layout_height="@dimen/height_row"
                 android:clickable="true"
                 android:focusable="true"
-                custom:titleText="@string/person_receive_address" />
+                custom:titleText="@string/person_receive_address"
+                android:visibility="gone"/>
             <include layout="@layout/separator_line_margin_slice"/>
             <!-- 版本信息 -->
             <com.cdm.idlefish.view.SettingsCustomView

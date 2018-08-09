@@ -190,7 +190,7 @@
     <string name="umeng_socialize_comment_detail">评论详情</string>
     <string name="umeng_socialize_content_hint">说点啥…</string>
     <string name="umeng_socialize_friends">关注的好友</string>
-    <string name="umeng_socialize_img_des" />
+    <string name="umeng_socialize_img_des"/>
     <string name="umeng_socialize_login">登录</string>
     <string name="umeng_socialize_login_qq">QQ空间</string>
     <string name="umeng_socialize_mail">邮件</string>
@@ -281,5 +281,7 @@
     <string name="person_goods_collect">我的收藏</string>
     <string name="person_receive_address">收货地址</string>
     <string name="person_appversion">版本信息</string>
-    <string name="person_settings">设置</string>
+    <string name="person_settings">退出登录</string>
+    <string name="version_code">版本号：</string>
+    <string name="version_name">版本名称：</string>
 </resources>

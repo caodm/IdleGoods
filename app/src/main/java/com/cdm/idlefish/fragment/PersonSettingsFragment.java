@@ -12,9 +12,11 @@ import android.view.ViewGroup;
 import com.cdm.idlefish.R;
 import com.cdm.idlefish.activity.HasFabuGoogleActivity;
 import com.cdm.idlefish.activity.LoginActivity;
+import com.cdm.idlefish.activity.VersionInfoActivity;
 import com.cdm.idlefish.base.BaseFragment;
 import com.cdm.idlefish.config.Constants;
 import com.cdm.idlefish.view.SettingsCustomView;
+import com.cdm.utils.ToastUtils;
 import com.orhanobut.hawk.Hawk;
 
 /**
@@ -147,11 +149,12 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
             case R.id.person_receive_address_aview:
                 break;
             case R.id.person_appversion:
+                startActivityWithoutExtras(VersionInfoActivity.class);
                 break;
             case R.id.person_settings:
+                ToastUtils.getInstance().showToast("敬请期待");
                 break;
         }
-
     }
 
     /**

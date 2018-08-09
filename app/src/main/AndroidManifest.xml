@@ -92,6 +92,8 @@
                   android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".activity.SelectGoodsCategoryActivity"
                   android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".activity.VersionInfoActivity"
+                  android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>
