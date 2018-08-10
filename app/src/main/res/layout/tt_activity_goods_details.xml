@@ -112,6 +112,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/title_size"
             android:background="@color/md_red_300"
+            android:onClick="onCallPhone"
             android:text="联系我"
             />
     </RelativeLayout>

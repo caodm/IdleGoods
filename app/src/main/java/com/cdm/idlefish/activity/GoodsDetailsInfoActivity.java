@@ -3,6 +3,8 @@ package com.cdm.idlefish.activity;
 import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -14,6 +16,7 @@ import com.cdm.idlefish.base.BaseIdleFishActivity;
 import com.cdm.idlefish.config.Constants;
 import com.cdm.idlefish.dao.HomeDao;
 import com.cdm.idlefish.entity.HomeGoodEntity;
+import com.cdm.idlefish.utils.CommomUtils;
 import com.cdm.idlefish.utils.StringUtil;
 import com.cdm.idlefish.view.CircleImageView;
 import com.cdm.network.interf.HttpAuthCallBack;
@@ -38,6 +41,7 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
     private TextView mUserName,mType,mTitle,mContent,mWeight,mSellprice,mOriginprice,mPhone;
     private String goodsId = "";
     private TextView mTxtViewpagerIndex;
+    private Button mPhoneBtn;
 
     @Override
     protected int setLayoutResourceID() {
@@ -62,6 +66,8 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
         mSellprice = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_sellprice);
         mOriginprice = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_originprice);
         mPhone = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_phone);
+
+        mPhoneBtn =  $(R.id.tt_goods_detail_user_operation);
     }
 
     @Override
@@ -122,6 +128,14 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
             public void onPageScrollStateChanged(int state) {
             }
         });
+    }
+
+    /**
+     *
+     * @param view
+     */
+    public void onCallPhone(View view){
+        CommomUtils.diallPhone(this,goodsEntity.getPhone());
     }
 
     private void getEntityByIdFromHttp(String id){
