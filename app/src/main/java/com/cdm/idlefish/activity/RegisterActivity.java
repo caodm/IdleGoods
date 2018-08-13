@@ -27,12 +27,12 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private static final String TAG = "RegisterActivity";
 
-    private Button mBtnNext;
+    private Button mBtnNext ,mBtnRegister;
     private View mRegisterPhone , mRegisterInfo;
     private ViewFlipper mViewFlipper;
 
-    private ClearEditText mEditTxtName , mEditTxtPW;
-    private String userNameStr, userPwdStr;
+    private ClearEditText mEditTxtName , mEditTxtPW , mEditTextNickName;
+    private String userNameStr, userPwdStr , nackNameStr;
 
     @Override
     protected int setLayoutResourceID() {
@@ -53,26 +53,38 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         mBtnNext = $(R.id.tt_register_btn_next);
         mEditTxtName = $(R.id.register_et_phone);
         mEditTxtPW = $(R.id.register_et_password);
+        mEditTextNickName = $(R.id.tt_person_info_nickname);
+        mBtnRegister = $(R.id.tt_register_info_btn_register);
     }
 
     @Override
     protected void initListener() {
         mBtnNext.setOnClickListener(this);
+        mBtnRegister.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tt_register_btn_next:
-                if(validate()){
+                if(validateNameAndPassword()){
+                    next();
+                }
+                break;
+            case R.id.tt_register_info_btn_register:
+                if (validateNickName()){
                     register();
                 }
-
                 break;
         }
     }
 
-    private boolean validate() {
+    private void next(){
+        mRegisterPhone.setVisibility(View.GONE);
+        mRegisterInfo.setVisibility(View.VISIBLE);
+    }
+
+    private boolean validateNameAndPassword() {
         userNameStr = mEditTxtName.getText().toString().trim();
         userPwdStr = mEditTxtPW.getText().toString().trim();
 
@@ -96,7 +108,16 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             mEditTxtPW.setError("请填写6-16位的数字和字母组合");
             return false;
         }
+        return true;
+    }
 
+    private boolean validateNickName(){
+        nackNameStr =  mEditTextNickName.getText().toString().trim();
+        if (TextUtils.isEmpty(nackNameStr)) {
+            mEditTextNickName.requestFocus();
+            mEditTextNickName.setError("请填写别名");
+            return false;
+        }
         return true;
     }
 

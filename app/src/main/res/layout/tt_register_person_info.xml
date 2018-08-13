@@ -42,6 +42,7 @@
         android:background="@color/white">
 
         <TextView
+            android:id="@+id/tt_person_info_nickname_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -50,18 +51,20 @@
             android:textColor="@color/gray_c5"
             android:textSize="@dimen/text_size_normal" />
 
-        <EditText
+        <com.cdm.idlefish.view.ClearEditText
             android:id="@+id/tt_person_info_nickname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="140.0dip"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@+id/tt_person_info_nickname_title"
             android:background="@null"
             android:textColor="@color/gray_c7"
             android:textSize="@dimen/text_size_normal">
 
             <requestFocus />
-        </EditText>
+        </com.cdm.idlefish.view.ClearEditText>
     </RelativeLayout>
 
     <View
@@ -71,7 +74,7 @@
 
     <RelativeLayout
         android:id="@+id/tt_person_info_user_sex"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="50.0dip"
         android:background="@color/white">
 
@@ -84,26 +87,32 @@
             android:textColor="@color/gray_c5"
             android:textSize="@dimen/text_size_normal" />
 
-        <TextView
-            android:id="@+id/tt_person_info_sex_male"
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="140.0dip"
-            android:text="@string/male"
-            android:textColor="@color/gray_c7"
-            android:textSize="@dimen/text_size_normal" />
+            android:orientation="horizontal"
+            android:layout_centerInParent="true"
+            android:gravity="center">
+            <RadioButton
+                android:id="@+id/tt_person_info_sex_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/male"
+                android:textColor="@color/gray_c7"
+                android:textSize="@dimen/text_size_normal" />
 
-        <TextView
-            android:id="@+id/tt_person_info_sex_female"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="50.0dip"
-            android:layout_toRightOf="@+id/tt_person_info_sex_male"
-            android:text="@string/female"
-            android:textColor="@color/gray_c7"
-            android:textSize="@dimen/text_size_normal" />
+            <RadioButton
+                android:id="@+id/tt_person_info_sex_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50.0dip"
+                android:text="@string/female"
+                android:textColor="@color/gray_c7"
+                android:textSize="@dimen/text_size_normal" />
+        </RadioGroup>
+
     </RelativeLayout>
 
     <View

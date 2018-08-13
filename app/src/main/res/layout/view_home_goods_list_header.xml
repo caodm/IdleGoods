@@ -35,7 +35,7 @@
                 android:layout_below = "@+id/view_img_1"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "拿趣惠用" />
+                android:text = "精品回收" />
 
         </RelativeLayout>
 
@@ -62,7 +62,7 @@
                 android:layout_below = "@+id/view_img_2"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "排行榜单" />
+                android:text = "回归自然" />
 
         </RelativeLayout>
 
@@ -89,7 +89,7 @@
                 android:layout_below = "@+id/view_img_3"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "审核专区" />
+                android:text = "校园专区" />
 
         </RelativeLayout>
 
@@ -115,7 +115,7 @@
                 android:layout_below = "@+id/view_img_4"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "心愿墙" />
+                android:text = "心愿之旅" />
 
         </RelativeLayout>
 

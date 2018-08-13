@@ -30,6 +30,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private String userNameStr, userPwdStr;
 
+    private View mViewThirdWeixin,mViewThirdQQ,mViewThirdWeibo;
+
     @Override
     protected int setLayoutResourceID() {
         return R.layout.activity_login_2;
@@ -43,6 +45,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         mBtnRegister = $(R.id.login_btn_register);
         mEditTxtName = $(R.id.login_et_username);
         mEditTxtPW = $(R.id.login_et_password);
+
+        mViewThirdWeixin = $(R.id.tt_third_login_weixin);
+        mViewThirdQQ = $(R.id.tt_third_login_qq);
+        mViewThirdWeibo = $(R.id.tt_third_login_weibo);
+
         ToastUtils.init(this);
     }
 
@@ -63,6 +70,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     protected void initListener() {
         mBtnLogin.setOnClickListener(this);
         mBtnRegister.setOnClickListener(this);
+        mViewThirdWeixin.setOnClickListener(this);
+        mViewThirdQQ.setOnClickListener(this);
+        mViewThirdWeibo.setOnClickListener(this);
     }
 
     @Override
@@ -77,6 +87,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.login_btn_register:
                 startActivityWithoutExtras(RegisterActivity.class);
+                break;
+            case R.id.tt_third_login_weixin:
+                ToastUtils.getInstance().showToast("需要在第三方平台注册帐号，暂不支持!");
+                break;
+            case R.id.tt_third_login_qq:
+                ToastUtils.getInstance().showToast("需要在第三方平台注册帐号，暂不支持!");
+                break;
+            case R.id.tt_third_login_weibo:
+                ToastUtils.getInstance().showToast("需要在第三方平台注册帐号，暂不支持!");
                 break;
         }
     }
