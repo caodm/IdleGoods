@@ -35,7 +35,7 @@
                 android:layout_below = "@+id/view_img_1"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "精品回收" />
+                android:text = "课程查看" />
 
         </RelativeLayout>
 
@@ -62,7 +62,7 @@
                 android:layout_below = "@+id/view_img_2"
                 android:layout_centerHorizontal = "true"
                 android:layout_marginTop = "10dp"
-                android:text = "回归自然" />
+                android:text = "快递查询" />
 
         </RelativeLayout>
 

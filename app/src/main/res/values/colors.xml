@@ -124,4 +124,8 @@
 
     <color name="button_fouces_gray">#f6f6f6</color>
     <color name="bg_activity">#fff0f2f5</color>
+
+    <!-- 显示课程表相关 -->
+    <color name="app_gold">#FF7A59</color>
+    <color name="app_white_slight">#FBFBFB</color>
 </resources>

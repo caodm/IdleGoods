@@ -94,6 +94,8 @@
                   android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".activity.VersionInfoActivity"
                   android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".activity.TimeTableActivity"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>

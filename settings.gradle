@@ -1,6 +1,7 @@
-include ':app','baselibrary','mainnavigatetabbar', ':ptr-lib','xrecyclerview','ChooseMorePictureLibrary'
+include ':app','baselibrary','mainnavigatetabbar', ':ptr-lib','xrecyclerview','ChooseMorePictureLibrary','TimetableView'
 project(':baselibrary').projectDir = new File('baselibrary')
 project(':ptr-lib').projectDir = new File('ptr-lib')
 project(':mainnavigatetabbar').projectDir = new File('mainnavigatetabbar')
 project(':xrecyclerview').projectDir = new File('xrecyclerview')
 project(':ChooseMorePictureLibrary').projectDir = new File('ChooseMorePictureLibrary')
+project(':TimetableView').projectDir = new File('TimetableView')

@@ -19,6 +19,7 @@ import com.cdm.idlefish.R;
 import com.cdm.idlefish.activity.GoodsCategoryActivity;
 import com.cdm.idlefish.activity.GoodsDetailsInfoActivity;
 import com.cdm.idlefish.activity.SearchGoodsActivity;
+import com.cdm.idlefish.activity.TimeTableActivity;
 import com.cdm.idlefish.adapter.HomeGoodsListAdapter;
 import com.cdm.idlefish.base.BaseFragment;
 import com.cdm.idlefish.config.Constants;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements View.OnClickListener{
 
     private static final String Tag = "HomeFragment";
     private static final String ARG_PARAM1 = "param1";
@@ -289,6 +290,10 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+        for (int i=0;i<mImageArr.length;i++){
+            mImageArr[i].setOnClickListener(this);
+        }
+
         mXRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
@@ -417,4 +422,18 @@ public class HomeFragment extends BaseFragment {
     }
 
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.view_img_1:
+                startActivityWithoutExtras(TimeTableActivity.class);
+                break;
+            case R.id.view_img_2:
+                break;
+            case R.id.view_img_3:
+                break;
+            case R.id.view_img_4:
+                break;
+        }
+    }
 }
