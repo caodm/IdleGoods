@@ -18,6 +18,7 @@ import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
 import com.cdm.idlefish.R;
 import com.cdm.idlefish.activity.GoodsCategoryActivity;
 import com.cdm.idlefish.activity.GoodsDetailsInfoActivity;
+import com.cdm.idlefish.activity.SearchExpressActivity;
 import com.cdm.idlefish.activity.SearchGoodsActivity;
 import com.cdm.idlefish.activity.TimeTableActivity;
 import com.cdm.idlefish.adapter.HomeGoodsListAdapter;
@@ -429,6 +430,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
                 startActivityWithoutExtras(TimeTableActivity.class);
                 break;
             case R.id.view_img_2:
+                startActivityWithoutExtras(SearchExpressActivity.class);
                 break;
             case R.id.view_img_3:
                 break;

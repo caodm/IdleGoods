@@ -284,4 +284,13 @@
     <string name="person_settings">退出登录</string>
     <string name="version_code">版本号：</string>
     <string name="version_name">版本名称：</string>
+
+    <string name="remark">运单备注</string>
+    <string name="input_post_id">请输入或扫描运单号</string>
+    <string name="sure_delete_history">您要删除该条记录吗？</string>
+    <string name="tips">温馨提示</string>
+    <string name="uncheck">在途中</string>
+    <string name="ischeck">已签收</string>
+    <string name="no_history">暂时没有记录</string>
+
 </resources>

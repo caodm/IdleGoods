@@ -96,6 +96,18 @@
                   android:configChanges="orientation|keyboardHidden"/>
         <activity android:name=".activity.TimeTableActivity"
             android:configChanges="orientation|keyboardHidden"/>
+
+        <activity android:name=".activity.SearchExpressActivity"
+            android:configChanges="orientation|keyboardHidden"/>
+
+        <activity android:name=".activity.CompanyActivity"
+            android:configChanges="orientation|keyboardHidden"/>
+
+        <activity android:name=".activity.ResultActivity"
+            android:configChanges="orientation|keyboardHidden"/>
+
+        <activity android:name=".activity.HistoryActivity"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>

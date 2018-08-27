@@ -128,4 +128,19 @@
     <!-- 显示课程表相关 -->
     <color name="app_gold">#FF7A59</color>
     <color name="app_white_slight">#FBFBFB</color>
+
+    <!-- 显示课程表相关 -->
+    <color name="light_blue">#03A9F4</color>
+    <color name="light_blue_700">#0288D1</color>
+    <color name="teal">#009688</color>
+    <color name="cyan">#00BCD4</color>
+    <color name="green">#4CAF50</color>
+    <color name="deep_orange">#FF5722</color>
+    <color name="grey">#9E9E9E</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_700">#616161</color>
+    <color name="orange_700">#F57C00</color>translucent
+    <color name="translucent_70p">#B3000000</color>
+    <!--zxing-->
+    <color name="viewfinder_laser_transparent">#0003A9F4</color>
 </resources>
