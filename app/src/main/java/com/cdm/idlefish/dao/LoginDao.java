@@ -59,7 +59,8 @@ public class LoginDao {
         helper.sendRequest(context);
     }
 
-    public void doRegister(Context context,final String name,final String pw, final HttpAuthCallBack<User> callBack ) {
+    public void doRegister(Context context,final String name,final String pw,
+                           final HttpAuthCallBack<User> callBack ) {
         HttpAuthHelper helper = new HttpAuthHelper() {
             @Override
             public void setRequestParams(Map<String, String> params) {

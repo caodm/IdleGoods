@@ -7,10 +7,40 @@ import android.os.Parcelable;
 public class HomeGoodEntity implements Parcelable {
 
     private int id;
-    /** 用户id **/
+    /** 当前物品所属用户id **/
     private int user_id;
-    /** 用户头像 **/
+    /** 当前物品所属用户头像 **/
     private String user_icon;
+    /** 当前物品所属用户名称 **/
+    private String user_name;
+    /** 物品标题 **/
+    private String title;
+    /**  **/
+    private String topLine;//这个暂时可为空
+    private int data_flag; //这个暂时可为空
+    /** 物品图片地址，最多5张，"image1&image2&image3&image4&image5"**/
+    private String image;
+    /** 分类 **/
+    private String type;
+    /** 物品描述 **/
+    private String content;
+    private String operation;
+    /** 物品重量 **/
+    private String weight;
+    /** 物品售价 **/
+    private float sellPrice;
+    /** 物品原价 **/
+    private float originalPrice;
+    /** 联系方式 **/
+    private String phone;
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
 
     public String getUser_name() {
         return user_name;
@@ -27,35 +57,6 @@ public class HomeGoodEntity implements Parcelable {
     public void setType(String type) {
         this.type = type;
     }
-
-    /** 用户名称 **/
-    private String user_name;
-    /** 物品标题 **/
-    private String title;
-    /**  **/
-    private String topLine;
-    private int data_flag;
-    private String image;
-    private String type;
-    /** 物品描述 **/
-    private String content;
-    private String operation;
-
-    public String getWeight() {
-        return weight;
-    }
-
-    public void setWeight(String weight) {
-        this.weight = weight;
-    }
-
-    private String weight;
-    /** 物品售价 **/
-    private float sellPrice;
-    /** 物品原价 **/
-    private float originalPrice;
-    /** 联系方式 **/
-    private String phone;
 
     public HomeGoodEntity(){
 

@@ -5,63 +5,42 @@ package com.cdm.idlefish.entity;
  */
 public class User {
 
+    private String name;//用户名
+    private int id; //用户id
+    private String password; //密码
+    private String userIcon; //用户头像
+    private Object nickName;//昵称
+    private Object loginName;//用户名
+    private int usersex;//性别: 0 : 男，1：女
+    private String token; //token
 
-    /**
-     * name : zhangshihui
-     * id : 1
-     * password : 123
-     * roles : null
-     * token : c6b902535a14426ca29eecb5c750ab9a
-     * qquid : null
-     * wechatuid : null
-     * microbloguid : null
-     * memberInfo : {"address":null,"name":null,"id":1,"status":1,"sysuserId":null,"levelId":null,"nickName":null,"no":null,"tel":null,"balance":null,"avatarPath":null,"lev":null,"totalConsume":null,"totalPoint":null,"birth":null,"pwd":null,"email":null,"sex":null,"identification":null,"hobby":null,"postCode":null,"mac":null}
-     * loginName : null
-     * salt : null
-     * registerDate : null
-     * openid : null
-     * bindWechat : null
-     */
+    private Object roles; //可以为空
+    private Object qquid; //可以为空
+    private Object wechatuid;//可以为空
+    private Object microbloguid;//可以为空
+    private Object salt; //可以为空
+    private Object registerDate;//可以为空
+    private Object openid;//可以为空
+    private Object bindWechat;//可以为空
 
-    private String name;
-    private int id;
-    private String password;
-    private Object roles;
-    private String token;
-    private Object qquid;
-    private Object wechatuid;
-    private Object microbloguid;
-    /**
-     * address : null
-     * name : null
-     * id : 1
-     * status : 1
-     * sysuserId : null
-     * levelId : null
-     * nickName : null
-     * no : null
-     * tel : null
-     * balance : null
-     * avatarPath : null
-     * lev : null
-     * totalConsume : null
-     * totalPoint : null
-     * birth : null
-     * pwd : null
-     * email : null
-     * sex : null
-     * identification : null
-     * hobby : null
-     * postCode : null
-     * mac : null
-     */
+    public String getUserIcon() {
+        return userIcon;
+    }
 
-    private MemberInfo memberInfo;
-    private Object loginName;
-    private Object salt;
-    private Object registerDate;
-    private Object openid;
-    private Object bindWechat;
+    public void setUserIcon(String userIcon) {
+        this.userIcon = userIcon;
+    }
+
+
+    public Object getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(Object nickName) {
+        this.nickName = nickName;
+    }
+
+
 
 
     public User() {
@@ -131,13 +110,6 @@ public class User {
         this.microbloguid = microbloguid;
     }
 
-    public MemberInfo getMemberInfo() {
-        return memberInfo;
-    }
-
-    public void setMemberInfo(MemberInfo memberInfo) {
-        this.memberInfo = memberInfo;
-    }
 
     public Object getLoginName() {
         return loginName;
@@ -191,7 +163,6 @@ public class User {
                 ", qquid=" + qquid +
                 ", wechatuid=" + wechatuid +
                 ", microbloguid=" + microbloguid +
-                ", memberInfo=" + memberInfo +
                 ", loginName=" + loginName +
                 ", salt=" + salt +
                 ", registerDate=" + registerDate +
