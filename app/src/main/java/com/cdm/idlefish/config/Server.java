@@ -21,7 +21,7 @@ public class Server implements IServerConfig {
     private static Server instance;
     private static final String SERVER_IP = "server_ip";
     private static final String SERVER_PORT = "server_port";
-    private static String ip = "iini.v084.10000net.cn";
+    private static String ip = "47.94.95.70";
     private static String port = "8080";
 
     //服务器地址配置
@@ -40,8 +40,8 @@ public class Server implements IServerConfig {
     @Override
     public String getHttpServer() {
         Log.v("IP", ip);
-        return "http://" + ip  + "/fhmysql";//FHMYSQL
-//        return "http://" + ip + ":" + port + "/FHMYSQL";//FHMYSQL
+//        return "http://" + ip  + "/school";//FHMYSQL
+        return "http://" + ip + ":" + port + "/school/app";//FHMYSQL
     }
 
     private void initServer() {

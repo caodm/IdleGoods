@@ -16,12 +16,12 @@ public class ResultModel<T> {
     /**
      * 返回结果描述
      */
-    private String message;
+    private String msg;
 
     /**
      * 返回内容 具体业务数据
      */
-    public T content;
+    public T data;
 
     public int getCode() {
         return code;
@@ -32,20 +32,20 @@ public class ResultModel<T> {
     }
 
     public String getMessage() {
-        return message;
+        return msg;
     }
 
     public void setMessage(String msg){
-        this.message = msg;
+        this.msg = msg;
     }
 
     public T getContent() {
-        return content;
+        return data;
     }
 
     public static ResultModel parseError(String msg,int status){
         ResultModel respModel = new ResultModel();
-        respModel.message = msg;
+        respModel.msg = msg;
         respModel.code = status;
         return respModel;
     }

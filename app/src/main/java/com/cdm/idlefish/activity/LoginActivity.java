@@ -81,8 +81,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
             case R.id.login_btn_login:
                 if(validate()){
                     hideSoftKeyboard();
-                   // login();
-                    startActivityWithoutExtras(MainActivity2.class);
+                    login();
+                    //startActivityWithoutExtras(MainActivity2.class);
                 }
                 break;
             case R.id.login_btn_register:

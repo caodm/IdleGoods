@@ -43,7 +43,7 @@ public class LoginDao {
 
             @Override
             public String getRequesetURL() {
-                return "/userManager/login";
+                return "/login.do";
             }
 
             @Override
@@ -59,18 +59,20 @@ public class LoginDao {
         helper.sendRequest(context);
     }
 
-    public void doRegister(Context context,final String name,final String pw,
+    public void doRegister(Context context,final String name,final String pw,final String nickname,final int sex,
                            final HttpAuthCallBack<User> callBack ) {
         HttpAuthHelper helper = new HttpAuthHelper() {
             @Override
             public void setRequestParams(Map<String, String> params) {
-                params.put("name",name);
+                params.put("loginName",name);
                 params.put("password",pw);
+                params.put("nickName",nickname);
+                params.put("sex",sex+"");
             }
 
             @Override
             public String getRequesetURL() {
-                return "/appIndex/register";
+                return "/register.do";
             }
 
             @Override

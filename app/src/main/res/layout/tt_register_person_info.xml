@@ -88,6 +88,7 @@
             android:textSize="@dimen/text_size_normal" />
 
         <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -103,14 +104,14 @@
                 android:textSize="@dimen/text_size_normal" />
 
             <RadioButton
-                android:id="@+id/tt_person_info_sex_female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="50.0dip"
-                android:text="@string/female"
-                android:textColor="@color/gray_c7"
-                android:textSize="@dimen/text_size_normal" />
+                android:id = "@+id/tt_person_info_sex_female"
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:layout_marginLeft = "50.0dip"
+                android:text = "@string/female"
+                android:textColor = "@color/gray_c7"
+                android:textSize = "@dimen/text_size_normal" />
         </RadioGroup>
 
     </RelativeLayout>

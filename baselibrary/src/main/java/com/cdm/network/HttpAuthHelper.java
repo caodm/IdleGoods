@@ -93,7 +93,6 @@ public abstract class HttpAuthHelper extends HttpUtils {
                         .build();
                 break;
             case GET:
-
                 StringBuffer paramStr = new StringBuffer();
                 paramStr.append("?");
                 for (String key : params.keySet()) {
@@ -172,34 +171,34 @@ public abstract class HttpAuthHelper extends HttpUtils {
                     JSONObject jobj = new JSONObject(respData);
                     ResultModel resp = new ResultModel();
                     resp.setCode(jobj.getInt("code"));
-                    resp.setMessage(URLDecoder.decode(jobj.getString("message"), "UTF-8"));
+                    resp.setMessage(URLDecoder.decode(jobj.getString("msg"), "UTF-8"));
                     String data = "";
-                    if (jobj.has("content")) {
-                        data = URLDecoder.decode(jobj.getString("content"), "UTF-8");
+                    if (jobj.has("data")) {
+                        data = URLDecoder.decode(jobj.getString("data"), "UTF-8");
                     }
 
-                    if (resp.getCode() != 100) {
+                    if (code != 200) {
                         //返回失败信息
-                        resp.content = data;
+                        resp.data = data;
                         getResultCallback().onFailed(resp);
                         return;
                     } else if (callback.mType == ResultModel.class) {
-                        resp.content = data;
+                        resp.data = data;
                         //成功了，只需要返回状态信息的请求
                         getResultCallback().onSucceeded(resp);
                         return;
                     } else if (callback.mType == String.class) {
-                        resp.content = data;
+                        resp.data = data;
                     } else {
 //                        GsonBuilder gb = new GsonBuilder();
 //                        gb.registerTypeAdapter(String.class, new JSONConverter());
 //                        Gson mGson = gb.create();
                         Gson mGson = new Gson();
-                        resp.content = mGson.fromJson(data, callback.mType);
+                        resp.data = mGson.fromJson(data, callback.mType);
                     }
                     Log.i(TAG, " message: " + resp.getMessage());
-                    Log.i(TAG, " data: " + resp.content);
-                    getResultCallback().onSucceeded(resp.content);
+                    Log.i(TAG, " data: " + resp.data);
+                    getResultCallback().onSucceeded(resp.data);
                 } catch (com.google.gson.JsonParseException e)//Json解析的错误
                 {
                     getResultCallback().onFailed(ResultModel.parseError("数据解析错误",

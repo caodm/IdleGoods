@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.ViewFlipper;
 
 import com.cdm.activity.BaseActivity;
@@ -34,6 +35,9 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private ClearEditText mEditTxtName , mEditTxtPW , mEditTextNickName;
     private String userNameStr, userPwdStr , nackNameStr;
 
+    private RadioGroup mRadioGroup;
+    private int sex= 0;
+
     @Override
     protected int setLayoutResourceID() {
         return R.layout.activity_register;
@@ -55,12 +59,20 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         mEditTxtPW = $(R.id.register_et_password);
         mEditTextNickName = $(R.id.tt_person_info_nickname);
         mBtnRegister = $(R.id.tt_register_info_btn_register);
+
+        mRadioGroup =$(R.id.radioGroup);
     }
 
     @Override
     protected void initListener() {
         mBtnNext.setOnClickListener(this);
         mBtnRegister.setOnClickListener(this);
+        mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                sex = i;
+            }
+        });
     }
 
     @Override
@@ -122,7 +134,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void register(){
-        LoginDao.getInstanse().doRegister(this,userNameStr,userPwdStr,new HttpAuthCallBack<User>() {
+        LoginDao.getInstanse().doRegister(this,userNameStr,userPwdStr,nackNameStr,sex,new HttpAuthCallBack<User>() {
             @Override
             public void onSucceeded(User successObj) {
                 Log.i(TAG, "successObj -- "+successObj);
