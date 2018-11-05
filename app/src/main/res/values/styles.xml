@@ -75,4 +75,19 @@
         <item name="android:background">?android:attr/listDivider</item>
     </style>
 
+    <!-- 修改用户头像的对话框的主题 -->
+    <style name="Dialog_TakePhotoTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/dialogAnimation</item>
+    </style>
+
+    <style name="dialogAnimation" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/open_in</item>
+        <item name="@android:windowExitAnimation">@anim/exit_out</item>
+    </style>
+
 </resources>

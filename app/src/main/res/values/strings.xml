@@ -276,7 +276,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="text_my_fragment">敬请期待</string>
-    <string name="person_nickname">点击此处登录</string>
+    <string name="person_nickname">用户名</string>
     <string name="person_fabu">我发布的</string>
     <string name="person_goods_collect">我的收藏</string>
     <string name="person_receive_address">收货地址</string>

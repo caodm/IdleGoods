@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="13dp"
+        android:layout_alignParentTop="true"
+         >
+
+        <TextView
+            android:id="@+id/btn_takephoto"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/dialog_take_photo_top_bg"
+            android:gravity="center"
+            android:textColor="#007aff"
+            android:text="拍照"
+            android:textSize="20sp" />
+
+
+        <View
+            android:id="@+id/dialog_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:background="@mipmap/dialog_takephoto_divide"
+            android:layout_below="@+id/btn_takephoto"
+            />
+
+        <TextView
+            android:id="@+id/btn_imagebox"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/dialog_take_photo_bottom_bg"
+            android:textColor="#007aff"
+            android:layout_below="@+id/dialog_line"
+            android:gravity="center"
+            android:text="相册"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/btn_cansle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/dialog_take_photo_bg"
+            android:layout_below="@+id/btn_imagebox"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#007aff"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
