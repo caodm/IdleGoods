@@ -292,5 +292,7 @@
     <string name="uncheck">在途中</string>
     <string name="ischeck">已签收</string>
     <string name="no_history">暂时没有记录</string>
+    <string name="collect">收藏</string>
+    <string name="hava_collect">已收藏</string>
 
 </resources>

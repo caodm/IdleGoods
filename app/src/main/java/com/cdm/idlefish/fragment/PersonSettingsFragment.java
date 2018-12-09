@@ -10,9 +10,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cdm.idlefish.R;
 import com.cdm.idlefish.activity.HasFabuGoogleActivity;
@@ -20,13 +23,23 @@ import com.cdm.idlefish.activity.LoginActivity;
 import com.cdm.idlefish.activity.VersionInfoActivity;
 import com.cdm.idlefish.base.BaseFragment;
 import com.cdm.idlefish.config.Constants;
+import com.cdm.idlefish.dao.LoginDao;
+import com.cdm.idlefish.entity.User;
+import com.cdm.idlefish.session.Session;
+import com.cdm.idlefish.utils.CDNUtil;
 import com.cdm.idlefish.utils.DialogUtil;
 import com.cdm.idlefish.view.CircleImageView;
 import com.cdm.idlefish.view.SettingsCustomView;
+import com.cdm.network.interf.HttpAuthCallBack;
+import com.cdm.network.model.ResultModel;
 import com.cdm.utils.ToastUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.orhanobut.hawk.Hawk;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -59,6 +72,8 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
 
     private CircleImageView mUserIconView;
     private SettingsCustomView mViewFabu,mViewCollect,mViewAddress,mViewAppversion,mViewSettings;
+    private TextView mTextUserName;
+    private User mUser;
 
     public PersonSettingsFragment() {
         // Required empty public constructor
@@ -107,6 +122,7 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
 
     private void initView(View parentView){
         mUserIconView =$(R.id.image_imgv, $(R.id.person_head_layout,parentView));
+        mTextUserName = $(R.id.title_txtv, $(R.id.person_head_layout,parentView));
         mViewFabu = $(R.id.person_fuba,parentView);
         mViewCollect = $(R.id.person_collect_aview,parentView);
         mViewAddress = $(R.id.person_receive_address_aview,parentView);
@@ -142,6 +158,29 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        mUser = Session.getInstance().getUser();
+
+        if(mUser==null){
+            return;
+        }
+        if(mUser.getNickName()!=null){
+            mTextUserName.setText(mUser.getNickName()+"");
+        } else if(mUser.getLoginName()!=null){
+            mTextUserName.setText(mUser.getLoginName()+"");
+        }
+
+        if(mUser.getUserIcon()!=null){
+            mTextUserName.setText(mUser.getNickName()+"");
+//            mUserIconView.setImageBitmap(BitmapFactory.decodeFile(mUser.getUserIcon()));
+            ImageLoader.getInstance().displayImage(mUser.getUserIcon(), mUserIconView, Session.getInstance().getOptions());
+        }
+
+    }
+
+    @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
@@ -154,6 +193,7 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
                 Object object = Hawk.get(Constants.HAWK_ISLOGIN);
                 if(object ==null || (Integer)object !=1){
                     //startActivityWithoutExtras(LoginActivity.class);
+                    return;
                 }
                 updateHeadIcon();
                 break;
@@ -169,7 +209,10 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
                 startActivityWithoutExtras(VersionInfoActivity.class);
                 break;
             case R.id.person_settings:
-                ToastUtils.getInstance().showToast("敬请期待");
+            {
+                Session.getInstance().clear();
+                startActivityWithoutExtras(LoginActivity.class);
+            }
                 break;
         }
     }
@@ -205,8 +248,9 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
     private void setPicToView(Intent picdata) {
 
         if (tempCutFile != null && BitmapFactory.decodeFile(tempCutFile.getPath()) != null) {
-            mUserIconView.setImageBitmap(BitmapFactory.decodeFile(tempCutFile.getPath()));
-//            submitUserIconToQN();//提交到服务器
+            Log.i("caodm"," setPicToView  tempCutFile.getPath() ="+tempCutFile.getPath());
+//            mUserIconView.setImageBitmap(BitmapFactory.decodeFile(tempCutFile.getPath()));
+            submitUserIconToQN();//提交到服务器
         }
     }
 
@@ -276,6 +320,64 @@ public class PersonSettingsFragment extends BaseFragment implements View.OnClick
         SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
         return dateFormat.format(date) + ".jpg";
     }
+
+    /**
+     * 上传头像到七牛平台
+     */
+    private void submitUserIconToQN() {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    if (tempCutFile == null) {
+                        return;
+                    }
+                    CDNUtil.getInstance().upload(tempCutFile.getAbsolutePath(), tempCutFile.getName(), true);
+                    String webPath = CDNUtil.getInstance().getRemoteDownloadURL(tempCutFile.getName(), CDNUtil.TIME);//获取七牛文件路径
+                    User user = Session.getInstance().getUser();
+                    Log.d("SlidingFragment", "tempCutFile.getAbsolutePath()="+
+                            tempCutFile.getAbsolutePath()+" , webPath="+webPath +" , tempCutFile.getName()="+tempCutFile.getName());
+                    if (user != null) {
+                        submitUserIconToServer(user.getId() + "", webPath);
+                    } else {
+                        Toast.makeText(getActivity(), "上传头像失败！", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    /**
+     * 上传头像路径到服务端
+     *
+     * @param userid
+     * @param filepath
+     */
+    private void submitUserIconToServer(String userid, final String filepath) {
+        LoginDao.getInstanse().upLoaderIcon(getActivity(), userid, filepath, new HttpAuthCallBack<ResultModel>() {
+            @Override
+            public void onSucceeded(ResultModel successObj) {
+                Log.i("daming", " submitUserIconToServer successObj= " + successObj.getMessage() + " ,filepath=" + filepath);
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        ImageLoader.getInstance().displayImage(filepath, mUserIconView, Session.getInstance().getOptions());
+                        if (tempCutFile != null && tempCutFile.exists()) {
+                            tempCutFile.delete();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onFailed(ResultModel failObj) {
+                Toast.makeText(getActivity(), failObj.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

@@ -1,11 +1,14 @@
 package com.cdm.idlefish.activity;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -24,7 +27,14 @@ import com.cao.choosemorepicture.MultiPictureView;
 import com.cdm.activity.BaseActivity;
 import com.cdm.idlefish.R;
 import com.cdm.idlefish.config.Constants;
+import com.cdm.idlefish.dao.HomeDao;
 import com.cdm.idlefish.entity.HomeGoodEntity;
+import com.cdm.idlefish.entity.User;
+import com.cdm.idlefish.http.HttpCallback;
+import com.cdm.idlefish.session.Session;
+import com.cdm.idlefish.utils.CDNUtil;
+import com.cdm.network.interf.HttpAuthCallBack;
+import com.cdm.network.model.ResultModel;
 import com.goyourfly.vincent.Vincent;
 import com.orhanobut.hawk.Hawk;
 import com.zhihu.matisse.Matisse;
@@ -33,7 +43,10 @@ import com.zhihu.matisse.engine.ImageEngine;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -47,7 +60,7 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
 
     private EditText mEditTextGoodsTitle,mEditTextGoodsContent,mEditTextSellPrice,
             mEditTextOriginalPrice,mEditTextPhone;
-    private String mGoodsType,mGoodsTitle,mGoodsContent,mSellPrice,mOriginalPrice , mGoodsImage,mPhone;
+    private String mGoodsType,mGoodsTitle,mGoodsContent,mSellPrice,mOriginalPrice , mGoodsImage="",mPhone;
     private Button mBtnPublish;
     private View mFenleiView;
     private TextView mGoodsFenleiTextview;
@@ -124,10 +137,11 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
         item.setPhone(mPhone);
         item.setType(mGoodsType);
         if(_goodslist!=null && _goodslist.size()>0){
-            _goodslist.add(0,item);
+            //_goodslist.add(0,item);
         }
-        Hawk.put(Constants.HAWK_GOODS_LIST,_goodslist);
-        Toast.makeText(this,"发布成功!",Toast.LENGTH_SHORT).show();
+        faBuGoods(Session.getInstance().getUser().getId(),item);
+        //Hawk.put(Constants.HAWK_GOODS_LIST,_goodslist);
+        //Toast.makeText(this,"发布成功!",Toast.LENGTH_SHORT).show();
     }
 
     private boolean validate(){
@@ -248,18 +262,28 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_ADD_IMAGE && resultCode == RESULT_OK) {
             List<Uri> mList = Matisse.obtainResult(data);
+            mGoodsImage ="";
             for (int i=0;i<mList.size();i++){
                 Log.i("daming","item="+mList.get(i).getPath());
-                mGoodsImage+=mList.get(i).getPath();
+                //mGoodsImage+=mList.get(i).getPath();
                 int j=i+1;
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                submitUserIconToQN(mList.get(i));
                 if(j<mList.size()){
-                    mGoodsImage +="@";
+                    //mGoodsImage +="@";
                 }
             }
             multiPictureView.addItem(mList);
         } else if(requestCode == REQUEST_SELECT_CATEGORY && resultCode == RESULT_SELECT_CATEGORY){
             mGoodsType = data.getStringExtra(Constants.GOODS_TYPE);
-            mGoodsFenleiTextview.setText(mGoodsType);
+            mGoodsFenleiTextview.setText(Constants.GOODSCATEGORY[Integer.parseInt(mGoodsType)]);
+            mGoodsType = mGoodsType+1;
+            Log.i("daming","mGoodsType="+mGoodsType);
+
         }
     }
 
@@ -275,5 +299,101 @@ public class NewFabuActivity extends BaseActivity implements View.OnClickListene
                 publishGoods();
                 break;
         }
+    }
+
+
+    /**
+     * 上传图片到七牛平台
+     */
+    private void submitUserIconToQN(final Uri uri) {
+        new Thread() {
+            @Override
+            public void run() {
+                try {
+                    String filepath = getRealFilePath(getBaseContext(),uri);
+                    String filename = getCutPhotoFileName();//getFileNameFromUri(filepath);
+                    Log.d("SlidingFragment", "submitUserIconToQN : filename ="+filename +" ; filepath="+filepath);
+                    CDNUtil.getInstance().upload(filepath.trim(), filename.trim(), true);
+                    String webPath = CDNUtil.getInstance().getRemoteDownloadURL(filename.trim(), CDNUtil.TIME);//获取七牛文件路径
+                    if(!TextUtils.isEmpty(mGoodsImage)){
+                        mGoodsImage+="@";
+                    }
+                    mGoodsImage+=webPath;
+                    User user = Session.getInstance().getUser();
+                    Log.d("SlidingFragment", "submitUserIconToQN : webPath ="+webPath+"  ; mGoodsImage="+mGoodsImage);
+                    if (user != null) {
+                        //submitUserIconToServer(user.getId() + "", webPath);
+                    } else {
+                        Toast.makeText(NewFabuActivity.this, "上传头像失败！", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
+    }
+
+    public static String getRealFilePath( final Context context, final Uri uri ) {
+        if ( null == uri ) return null;
+        final String scheme = uri.getScheme();
+        String data = null;
+        if ( scheme == null )
+            data = uri.getPath();
+        else if ( ContentResolver.SCHEME_FILE.equals( scheme ) ) {
+            data = uri.getPath();
+        } else if ( ContentResolver.SCHEME_CONTENT.equals( scheme ) ) {
+            Cursor cursor = context.getContentResolver().query( uri, new String[] { MediaStore.Images.ImageColumns.DATA }, null, null, null );
+            if ( null != cursor ) {
+                if ( cursor.moveToFirst() ) {
+                    int index = cursor.getColumnIndex( MediaStore.Images.ImageColumns.DATA );
+                    if ( index > -1 ) {
+                        data = cursor.getString( index );
+                    }
+                }
+                cursor.close();
+            }
+        }
+        return data;
+    }
+
+    private void faBuGoods(int userid , HomeGoodEntity entity){
+        HomeDao.getInstanse().doFaBuGoods(this,userid,entity, new HttpAuthCallBack<ResultModel>(){
+
+            @Override
+            public void onSucceeded(ResultModel successObj) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(NewFabuActivity.this, "发布成功！", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+
+            @Override
+            public void onFailed(ResultModel failObj) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(NewFabuActivity.this, "发布失败！", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * 使用系统当前日期加以调整作为物品照片的名称
+     *
+     * @return
+     */
+    private String getCutPhotoFileName() {
+        Date date = new Date(System.currentTimeMillis());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
+        String str = "WP_" + dateFormat.format(date) + ".jpg";
+        return str;
+    }
+
+    private String getFileNameFromUri(String  filepath){
+        return filepath.substring(filepath.lastIndexOf("/")+1,filepath.length());
     }
 }

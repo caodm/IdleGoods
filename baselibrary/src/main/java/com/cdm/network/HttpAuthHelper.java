@@ -198,7 +198,11 @@ public abstract class HttpAuthHelper extends HttpUtils {
                     }
                     Log.i(TAG, " message: " + resp.getMessage());
                     Log.i(TAG, " data: " + resp.data);
-                    getResultCallback().onSucceeded(resp.data);
+                    if (resp.getCode() == ResponseCode.FAILED.getStatus()){
+                        getResultCallback().onFailed(resp);
+                    } else if(resp.getCode() == ResponseCode.SUCCESS.getStatus()){
+                        getResultCallback().onSucceeded(resp.data);
+                    }
                 } catch (com.google.gson.JsonParseException e)//Json解析的错误
                 {
                     getResultCallback().onFailed(ResultModel.parseError("数据解析错误",

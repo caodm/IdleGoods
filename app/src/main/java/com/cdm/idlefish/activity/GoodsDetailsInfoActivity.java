@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cdm.idlefish.R;
 import com.cdm.idlefish.adapter.GoodViewPagerAdapter;
@@ -16,6 +17,7 @@ import com.cdm.idlefish.base.BaseIdleFishActivity;
 import com.cdm.idlefish.config.Constants;
 import com.cdm.idlefish.dao.HomeDao;
 import com.cdm.idlefish.entity.HomeGoodEntity;
+import com.cdm.idlefish.session.Session;
 import com.cdm.idlefish.utils.CommomUtils;
 import com.cdm.idlefish.utils.StringUtil;
 import com.cdm.idlefish.view.CircleImageView;
@@ -38,10 +40,12 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
     private HomeGoodEntity goodsEntity;
     private String[] mStrArr = null;
     private CircleImageView mUserIcon;
-    private TextView mUserName,mType,mTitle,mContent,mWeight,mSellprice,mOriginprice,mPhone;
+    private TextView mUserName,mType,mTitle,mContent,mWeight,mSellprice,mOriginprice,mPhone,mCollect;
     private String goodsId = "";
     private TextView mTxtViewpagerIndex;
     private Button mPhoneBtn;
+    private View mCollectView;
+    private int mCoollect;
 
     @Override
     protected int setLayoutResourceID() {
@@ -67,6 +71,9 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
         mOriginprice = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_originprice);
         mPhone = (TextView) mViewGoodsInfoLayout.findViewById(R.id.tt_goods_detail_info_phone);
 
+        mCollectView = $(R.id.tt_goods_detail_comment);
+        mCollect= $(R.id.tt_goods_detail_comment_cnt);
+
         mPhoneBtn =  $(R.id.tt_goods_detail_user_operation);
     }
 
@@ -84,10 +91,11 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
     private void updateEntity(){
         //更新goods的轮播图
         mStrArr = StringUtil.splitString(goodsEntity.getImage(), Constants.SPLIT_TAG);
-        if(mStrArr!=null || mStrArr.length<1){
+        if(mStrArr!=null && mStrArr.length>=1){
             for(int i=0;i< mStrArr.length;i++){
                 ImageView view = new ImageView(this);
-                ImageLoader.getInstance().displayImage(mStrArr[i],view);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(mStrArr[i])?mStrArr[i]:mStrArr[i].trim(),view);
                 mListImg.add(view);
             }
             mAdapter.setmListImg(mListImg);
@@ -99,15 +107,32 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
             mTxtViewpagerIndex.setText("0/0");
         }
         //更新头像和昵称
-        ImageLoader.getInstance().displayImage(goodsEntity.getUser_icon(),mUserIcon);
+        ImageLoader.getInstance().displayImage(
+                TextUtils.isEmpty(goodsEntity.getUser_icon())?goodsEntity.getUser_icon():
+                        goodsEntity.getUser_icon().trim(),mUserIcon);
         mUserName.setText(goodsEntity.getUser_name());
-        mType.setText(goodsEntity.getType()+"");
+        int type = Integer.parseInt(goodsEntity.getType());
+        if(type>0){
+            type = type-1;
+        }else {
+            type = 0;
+        }
+        mType.setText(Constants.GOODSCATEGORY[type]);
         mTitle.setText(goodsEntity.getTitle());
         mContent.setText(goodsEntity.getContent());
         mWeight.setText(goodsEntity.getWeight());
         mSellprice.setText(goodsEntity.getSellPrice()+"");
         mOriginprice.setText(goodsEntity.getOriginalPrice()+"");
         mPhone.setText(goodsEntity.getPhone());
+
+        mCoollect = Integer.parseInt(goodsEntity.getCollect());
+
+        if("0".equals(goodsEntity.getCollect())){
+            mCollect.setText(R.string.hava_collect);
+        }else {
+            mCollect.setText(R.string.collect);
+        }
+
 
     }
 
@@ -128,6 +153,49 @@ public class GoodsDetailsInfoActivity extends BaseIdleFishActivity{
             public void onPageScrollStateChanged(int state) {
             }
         });
+        mCollectView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if (mCoollect == 0) colectGoods(1);
+                else colectGoods(0);
+            }
+        });
+    }
+
+    private void colectGoods(final int type){
+        HomeDao.getInstanse().doCollectGoods(this, Session.getInstance().getUser().getId(),
+                goodsEntity.getId(), type, new HttpAuthCallBack<ResultModel>() {
+                    @Override
+                    public void onSucceeded(ResultModel successObj) {
+                        mCoollect=type;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(mCoollect == 0){
+                                    mCollect.setText(R.string.hava_collect);
+                                    Toast.makeText(GoodsDetailsInfoActivity.this,"收藏成功",Toast.LENGTH_SHORT).show();
+                                }else {
+                                    mCollect.setText(R.string.collect);
+                                    Toast.makeText(GoodsDetailsInfoActivity.this,"取消收藏",Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+                    }
+                    @Override
+                    public void onFailed(final ResultModel failObj) {
+                        //mCoollect=1;
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(GoodsDetailsInfoActivity.this,failObj.getMessage(),Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+
     }
 
     /**

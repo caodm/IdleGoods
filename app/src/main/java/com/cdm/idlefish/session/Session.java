@@ -1,7 +1,9 @@
 package com.cdm.idlefish.session;
 
+import com.cdm.idlefish.config.Constants;
 import com.cdm.idlefish.entity.User;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.orhanobut.hawk.Hawk;
 
 /**
  * Created by user on 2016/10/20.
@@ -91,5 +93,6 @@ public class Session {
         token = "";
         buyTicketSuccess = false;
         options=null;
+        Hawk.remove(Constants.HAWK_ISLOGIN);
     }
 }

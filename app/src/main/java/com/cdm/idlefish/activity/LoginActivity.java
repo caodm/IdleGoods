@@ -40,6 +40,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     protected void initView() {
+
+        if (Session.getInstance().getUser()!=null && "1".equals(Hawk.get(Constants.HAWK_ISLOGIN))){
+            startActivityWithoutExtras(MainActivity2.class);
+        }
+
         setTitle("登录");
         mBtnLogin = $(R.id.login_btn_login);
         mBtnRegister = $(R.id.login_btn_register);
@@ -131,15 +136,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         LoginDao.getInstanse().doLogin(this,userNameStr,userPwdStr,new HttpAuthCallBack<User>() {
             @Override
             public void onSucceeded(User successObj) {
-                Log.i(TAG, "successObj -- "+successObj.toString());
                 if (successObj != null) {
+                    Log.i(TAG, "successObj -- "+successObj.toString());
                     Session.getInstance().clear();
                     Session.getInstance().setUser(successObj.getToken(), successObj);
+                    Hawk.put(Constants.HAWK_USERNAME, successObj.getLoginName());
+                    Hawk.put(Constants.HAWK_PASSWORD, successObj.getPassword());
+                    Hawk.put(Constants.HAWK_ISLOGIN, 1); //1为已登录
+                    startActivityWithoutExtras(MainActivity2.class);
                 }
-                Hawk.put(Constants.HAWK_USERNAME, successObj.getName());
-                Hawk.put(Constants.HAWK_PASSWORD, successObj.getPassword());
-                Hawk.put(Constants.HAWK_ISLOGIN, 1); //1为已登录
-                startActivityWithoutExtras(MainActivity2.class);
             }
 
             @Override

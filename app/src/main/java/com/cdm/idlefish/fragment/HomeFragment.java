@@ -28,6 +28,7 @@ import com.cdm.idlefish.dao.HomeDao;
 import com.cdm.idlefish.dao.LoginDao;
 import com.cdm.idlefish.entity.BannerItem;
 import com.cdm.idlefish.entity.HomeGoodEntity;
+import com.cdm.idlefish.session.Session;
 import com.cdm.idlefish.view.NetworkImageHolderView;
 import com.cdm.network.interf.HttpAuthCallBack;
 import com.cdm.network.model.ResultModel;
@@ -111,7 +112,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         if (parent != null) {
             parent.removeView(view);
         }
-        //getGoodsFromHttp();
         return view;
     }
 
@@ -119,9 +119,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initListener();
-//        for(int i=0;i<mImageArr.length;i++){
-//            ImageLoader.getInstance().displayImage(mList.get(position).getTopLine(),holder.topline,options);
-//        }
 
         mXRecyclerView.addHeaderView(bannerView);
         mXRecyclerView.addHeaderView(headerView);
@@ -132,27 +129,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         convenientBanner.setPageIndicatorAlign(ConvenientBanner.PageIndicatorAlign.ALIGN_PARENT_RIGHT);
         convenientBanner.startTurning(5000);
         bannerItems = new ArrayList<>();
-//        if (Hawk.contains(Constants.HAWK_BANNER_HOME)) {
-//            bannerItems = new ArrayList<>();
-//            bannerItems = (ArrayList<BannerItem>) Hawk.get(Constants.HAWK_BANNER_HOME);
-//            convenientBanner.setPages(new CBViewHolderCreator<NetworkImageHolderView>() {
-//                @Override
-//                public NetworkImageHolderView createHolder() {
-//                    return new NetworkImageHolderView();
-//                }
-//            }, bannerItems);
-//        }else{
-//            //测试数据
-//            bannerItems = new ArrayList<>();
-//            Hawk.put(Constants.HAWK_BANNER_HOME, bannerItems);
-//            convenientBanner.setPages(new CBViewHolderCreator<NetworkImageHolderView>() {
-//                @Override
-//                public NetworkImageHolderView createHolder() {
-//                    return new NetworkImageHolderView();
-//                }
-//            }, bannerItems);
-//        }
         addTestBannerData(bannerItems);
+        getGoodsFromHttp(pageNo);
     }
 
     /**
@@ -186,80 +164,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     }
 
 
-    private void addGoodsTestData(){
-        ArrayList<HomeGoodEntity> list = new ArrayList<>();
-        for(int i=0;i<5;i++){
-            HomeGoodEntity item = new HomeGoodEntity();
-            item.setId(i);
-            item.setUser_id(i);
-            item.setContent(" i =="+i);
-            if(i==0){
-                item.setUser_name("Tom");
-                item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/ac0730029d.jpg");
-                item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
-                item.setTitle("深大校花温心尽显温婉可人写真照");
-                item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
-                item.setTopLine("温心");
 
-                item.setOriginalPrice(200);
-                item.setSellPrice(10);
-                item.setPhone("021-022112");
-                item.setWeight("50");
-            }else if(i==1) {
-                item.setUser_name("Tonny");
-                item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
-                        "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg");
-                item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
-                item.setTitle("深大校花温心尽显温婉可人写真照");
-                item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
-                item.setTopLine("温心");
-                item.setOriginalPrice(200);
-                item.setSellPrice(10);
-                item.setPhone("021-022112");
-                item.setWeight("50");
-            }else if(i==2) {
-                item.setUser_name("Sammy");
-                item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
-                        "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg@" +
-                        "http://www.27270.com/word/dongwushijie/2018/283328_2.html");
-                item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
-                item.setTitle("深大校花温心尽显温婉可人写真照");
-                item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
-                item.setTopLine("温心");
-                item.setOriginalPrice(200);
-                item.setSellPrice(10);
-                item.setPhone("021-022112");
-                item.setWeight("50");
-            }else if(i==3) {
-                item.setUser_name("lily");
-                item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg@" +
-                        "http://www.27270.com/word/dongwushijie/2018/283328_2.html@" +
-                        "http://t2.hddhhn.com/uploads/tu/201806/9999/f13ae9f84b.jpg");
-                item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
-                item.setTitle("深大校花温心尽显温婉可人写真照");
-                item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
-                item.setTopLine("温心");
-                item.setOriginalPrice(200);
-                item.setSellPrice(10);
-                item.setPhone("021-022112");
-                item.setWeight("50");
-            }else if(i==4) {
-                item.setUser_name("jacky");
-                item.setImage("http://t2.hddhhn.com/uploads/tu/201806/9999/f0dd8ac77d.jpg@" +
-                        "http://t2.hddhhn.com/uploads/tu/201806/9999/921b1e70ae.jpg");
-                item.setUser_icon("http://t2.hddhhn.com/uploads/tu/20150420/24178-0HodK0D.jpg");
-                item.setTitle("深大校花温心尽显温婉可人写真照");
-                item.setContent("温心，90后中国女演员、模特、歌手，她天生拥有清纯甜美的气质，以“深大校花”身份走入大众视线。分享深大校花温心尽显温婉可人写真照");
-                item.setTopLine("温心");
-                item.setOriginalPrice(200);
-                item.setSellPrice(10);
-                item.setPhone("021-022112");
-                item.setWeight("50");
-            }
-            list.add(item);
-        }
-        updateUI(list);
-    }
 
     private void initRefreshView() {
     }
@@ -267,8 +172,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
-//        getBannerListFromHttp();//暂时使用测试数据
-        addGoodsTestData();
+//        addGoodsTestData();
     }
 
     @Override
@@ -299,7 +203,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
             @Override
             public void onRefresh() {
                 pageNo = 1 ;
-                getGoodsFromHttp();
+                mGoodAdapter.clear();
+                getGoodsFromHttp(pageNo);
                 new Handler().postDelayed(new Runnable(){
                     public void run() {
                         mXRecyclerView.refreshComplete();
@@ -309,8 +214,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
 
             @Override
             public void onLoadMore() {
-//                pageNo++ ;
-//                getGoodsFromHttp();
+                pageNo++ ;
+                getGoodsFromHttp(pageNo);
                 new Handler().postDelayed(new Runnable(){
                     public void run() {
                         mXRecyclerView.loadMoreComplete();
@@ -391,8 +296,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     }
 
 
-    private void getGoodsFromHttp(){
-        HomeDao.getInstanse().doGetGoodsList(getActivity(),
+    private void getGoodsFromHttp(int pageNo){
+        HomeDao.getInstanse().doGetGoodsList(getActivity(),pageNo,0, Session.getInstance().getUser().getId(),
                 new HttpAuthCallBack<List<HomeGoodEntity>>() {
             @Override
             public void onSucceeded(final List<HomeGoodEntity> successObj) {

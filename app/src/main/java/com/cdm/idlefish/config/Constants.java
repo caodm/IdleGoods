@@ -33,7 +33,8 @@ public class Constants {
     public static final String GOODS_ID = "id";
 
     /****/
-    public static final String[] GOODSCATEGORY=new String[]{"潮流女装","品牌男装","品牌女士",
+    public static final String[] GOODSCATEGORY=new String[]{
+            "潮流女装","品牌男装","品牌女士",
             "家用电器","手机数码","电脑办公","个护化妆","母婴频道","食物生鲜",
             "酒水饮料","家居家纺","整车车品","鞋靴箱包","运动户外","图书",
             "玩具乐器","钟表","居家生活","珠宝饰品","音像制品","家具建材",

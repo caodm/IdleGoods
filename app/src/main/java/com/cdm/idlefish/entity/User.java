@@ -8,11 +8,66 @@ public class User {
     private String name;//用户名
     private int id; //用户id
     private String password; //密码
-    private String userIcon; //用户头像
-    private Object nickName;//昵称
-    private Object loginName;//用户名
+    private String usericon; //用户头像
+    private String nickName;//昵称
+    private String loginName;//用户名
     private int usersex;//性别: 0 : 男，1：女
     private String token; //token
+
+    private int page;
+    private int limit;
+    private int start;
+
+    public int getUsersex() {
+        return usersex;
+    }
+
+    public void setUsersex(int usersex) {
+        this.usersex = usersex;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
+
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public int getTotalSize() {
+        return totalSize;
+    }
+
+    public void setTotalSize(int totalSize) {
+        this.totalSize = totalSize;
+    }
+
+    private int totalCount;
+    private int totalSize;
 
     private Object roles; //可以为空
     private Object qquid; //可以为空
@@ -23,12 +78,23 @@ public class User {
     private Object openid;//可以为空
     private Object bindWechat;//可以为空
 
+    /**
+     *
+     * {"id":0,"page":0,"limit":0,"start":0,"totalCount":-1,"totalSize":-1,"name":null,
+     "password":"123qwe","usericon":null,"nickName":"daming","loginName":"daming","sex":1,
+     "token":null,"roles":null,"qquid":0,"wechatuid":0,"microbloguid":0,"salt":null,
+     "registerdate":null,"openid":0,"bindwechat":null}
+     *
+     */
+
+
+
     public String getUserIcon() {
-        return userIcon;
+        return usericon;
     }
 
     public void setUserIcon(String userIcon) {
-        this.userIcon = userIcon;
+        this.usericon = userIcon;
     }
 
 
@@ -36,7 +102,7 @@ public class User {
         return nickName;
     }
 
-    public void setNickName(Object nickName) {
+    public void setNickName(String nickName) {
         this.nickName = nickName;
     }
 
@@ -115,7 +181,7 @@ public class User {
         return loginName;
     }
 
-    public void setLoginName(Object loginName) {
+    public void setLoginName(String loginName) {
         this.loginName = loginName;
     }
 

@@ -1,6 +1,9 @@
 package com.cdm.idlefish.application;
 
 
+import android.annotation.SuppressLint;
+import android.os.StrictMode;
+
 import com.cdm.application.BaseApplication;
 import com.cdm.idlefish.config.Server;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
@@ -32,12 +35,22 @@ public class IASApplication extends BaseApplication {
         setServerConfig(Server.getInstance());
         initKVStorage();
         InitImageLoader();
+        catchCameraException();
     }
 
     public static IASApplication getIASApplication(){
         return (IASApplication) getInstance();
     }
 
+    /**
+     * android 7.0系统解决拍照的问题
+     */
+    @SuppressLint("NewApi")
+    private void catchCameraException(){
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        builder.detectFileUriExposure();
+    }
 
     /**
      * SharedPrefStorage 数据存储

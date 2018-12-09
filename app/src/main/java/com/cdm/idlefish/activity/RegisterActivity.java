@@ -134,7 +134,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void register(){
-        LoginDao.getInstanse().doRegister(this,userNameStr,userPwdStr,nackNameStr,sex,new HttpAuthCallBack<User>() {
+        LoginDao.getInstanse().doRegister(this,userNameStr,userPwdStr,nackNameStr,
+                sex,new HttpAuthCallBack<User>() {
             @Override
             public void onSucceeded(User successObj) {
                 Log.i(TAG, "successObj -- "+successObj);

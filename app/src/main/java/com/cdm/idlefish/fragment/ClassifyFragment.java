@@ -35,12 +35,15 @@ public class ClassifyFragment extends BaseFragment {
     private GoodsCategoryAdapter mAdapter;
     private List<GoodsCategoryEntity> mList = new ArrayList<>();
     private String[] mStrContent = {"美妈爱萌宝", "闲置也时尚", "满足温馨生活", "包你满意",
-            "知识就是力量", "最闪耀最任性", "女神美美哒", "共享之乐尽在拿趣",""};
+            "知识就是力量", "最闪耀最任性", "女神美美哒", "共享之乐尽在拿趣" ,""};
+
+    private int[] mType = {8, 3, 24, 13,5, 5, 7, 25};
     private String[] mStrTitle =  {"母婴频道","品牌女士","生活服务","鞋靴箱包","图书","手机数码","个护化妆","旅游出行",""};
     private int[] mId = {
             R.drawable.goods_type_maternal,R.drawable.goods_type_shoes_clothes,R.drawable.goods_type_livelihood,
             R.drawable.goods_type_luggage,R.drawable.goods_type_books,R.drawable.goods_type_digital,
             R.drawable.goods_type_beauty,R.drawable.goods_type_others ,R.drawable.goods_type_others};
+
 
     private View view;
     private Button button;
@@ -93,7 +96,7 @@ public class ClassifyFragment extends BaseFragment {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(Constants.GOODS_TYPE,""+(position+1));
+                intent.putExtra(Constants.GOODS_TYPE,mType[position]);
                 startActivityWithIntent(SearchGoodsActivity.class,intent);
             }
         });

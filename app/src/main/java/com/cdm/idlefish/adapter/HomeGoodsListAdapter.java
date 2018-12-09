@@ -2,6 +2,7 @@ package com.cdm.idlefish.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -80,10 +81,16 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
             DisplayImageOptions options = Session.getInstance().getOptions();
             if(options!=null){
                 ImageLoader.getInstance().displayImage(entity.getTopLine(),topline,options);
-                ImageLoader.getInstance().displayImage(entity.getUser_icon(),usericon,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(entity.getUser_icon())?entity.getUser_icon():
+                                entity.getUser_icon().trim(),
+                        usericon,options);
             }else{
                 ImageLoader.getInstance().displayImage(entity.getTopLine(),topline);
-                ImageLoader.getInstance().displayImage(entity.getUser_icon(),usericon);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(entity.getUser_icon())?entity.getUser_icon():
+                        entity.getUser_icon().trim(),
+                        usericon);
             }
             title.setText(entity.getTitle());
             username.setText(entity.getUser_name());
@@ -91,20 +98,33 @@ public class HomeGoodsListAdapter extends ListRecyclerAdapter<HomeGoodEntity,Hom
             if(str == null){
                 view.setVisibility(View.GONE);
                 image.setVisibility(View.GONE);
+                return;
             }
             if(str.length == 1){
                 view.setVisibility(View.GONE);
-                ImageLoader.getInstance().displayImage(str[0],image,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[0])?str[0]:str[0].trim(),
+                        image,options);
             }else if(str.length == 2){
                 image.setVisibility(View.GONE);
-                ImageLoader.getInstance().displayImage(str[0],image1,options);
-                ImageLoader.getInstance().displayImage(str[1],image2,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[0])?str[0]:str[0].trim(),
+                        image1,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[1])?str[1]:str[1].trim(),
+                        image2,options);
                 image3.setVisibility(View.INVISIBLE);
             }else if(str.length >= 3){
                 image.setVisibility(View.GONE);
-                ImageLoader.getInstance().displayImage(str[0],image1,options);
-                ImageLoader.getInstance().displayImage(str[1],image2,options);
-                ImageLoader.getInstance().displayImage(str[2],image3,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[0])?str[0]:str[0].trim(),
+                        image1,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[1])?str[1]:str[1].trim(),
+                        image2,options);
+                ImageLoader.getInstance().displayImage(
+                        TextUtils.isEmpty(str[2])?str[2]:str[2].trim(),
+                        image3,options);
             }
         }
     }

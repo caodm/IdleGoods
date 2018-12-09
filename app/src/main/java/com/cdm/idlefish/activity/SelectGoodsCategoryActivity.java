@@ -68,7 +68,8 @@ public class SelectGoodsCategoryActivity extends BaseActivity{
                     return ;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(Constants.GOODS_TYPE,""+mCategoryList.get(position-1).getCategoryTitle());
+                //类型用数字传递，mCategoryList.get(position-1).getCategoryTitle()
+                intent.putExtra(Constants.GOODS_TYPE,""+(position-1));
                 setResult(NewFabuActivity.RESULT_SELECT_CATEGORY,intent);
                 finish();
             }
